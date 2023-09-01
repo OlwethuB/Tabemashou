@@ -36,7 +36,7 @@ exports.fetchProductId = (req, res) => {
 // create product
 exports.createProduct = (req, res) => {
     const data = req.body;
-    product.insertProduct(data, (err, results) => {
+    product.insertProduct(data, (err ) => {
         if (err) {
             res.send(err);
         } else{
@@ -53,7 +53,7 @@ exports.createProduct = (req, res) => {
 exports.updateProduct = (req, res) => {
     const data = req.body;
     const id = req.params.id;
-    product.updateProductById(data, id, (err, results) => {
+    product.updateProductById(data, id, (err) => {
         if (err) {
             res.send(err);
         } else{
@@ -74,7 +74,7 @@ exports.deleteProduct = (req, res) => {
         } else{
             res.json({
                 status: res.statusCode,
-                msg: "Product record deleted"
+                msg: "Product record deleted" 
             });
         }
     });
