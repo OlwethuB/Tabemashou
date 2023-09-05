@@ -11,15 +11,15 @@ class Users {
       } else {
         result(null, results);
       }
-    });
+    }); 
   };
 
   fetchUser(req, res) {
-    const query = ` SELECT userID, firstName, lastName, gender, userDOB, emailAdd, userRole, profileUrl FROM Users WHERE userID = ${req.params.id};`;
+    const query = ` SELECT * FROM Users WHERE userID = ${req};`
     db.query(query, (err, result) => {
       if (err) throw err;
       res.json({
-        status: res.statusCode,
+        status: 200,
         result,
       });
     });
@@ -91,23 +91,23 @@ class Users {
     });
   }
 
-  updateUser(req, res) {
-    const data = req.body;
+  updateUser(body, id) {
+    const data = body;
     if (data.userPass) {
       data.userPass = hashSync(data.userPass, 15);
     }
-    const query = ` UPDATE Users SET ? WHERE userID = ? `;
-    db.query(query, [data, req.params.id], (err) => {
+    const query = ` UPDATE Users SET ? WHERE userID = ? ;`
+    db.query(query, [data, id], (err) => {
       if (err) throw err;
-      res.json({
-        status: res.statusCode,
-        msg: "User record updated.",
-      });
+      // res.json({
+      //   status: res.statusCode,
+      //   msg: "User record updated.",
+      // });
     });
   }
 
   deleteUser(req, res) {
-    const query = ` DELETE FROM Users WHERE userID = ${req.params.id}`;
+    const query = ` DELETE FROM Users WHERE userID = ${req.params.id};`
     db.query(query, (err) => {
       if (err) throw err;
       res.json({
