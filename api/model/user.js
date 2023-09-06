@@ -29,9 +29,8 @@ class Users {
 
   // if this works...
   login(req, res) {
-    const { emailAdd, userPass } = req.body;
-    // query
-    const query = ` SELECT * FROM Users WHERE emailAdd = ${emailAdd}`;
+    const { firstName, userPass } = req.body;
+    const query = `SELECT * FROM Users WHERE firstName = "${firstName}"`; 
     db.query(query, async (err, result) => {
       if (err) throw err;
       if (!result?.length) {
@@ -44,7 +43,7 @@ class Users {
           if (cErr) throw cErr;
           // create a token
           const token = createToken({
-            emailAdd,
+            firstName,
             userPass,
           });
           if (cResult) {
@@ -70,7 +69,7 @@ class Users {
     data.userPass = await hash(data.userPass, 15);
     //  Payload
     const user = {
-      emailAdd: data.emailAdd,
+      firstName: data.firstName,
       userPass: data.userPass,
     };
     // query
@@ -91,7 +90,7 @@ class Users {
     });
   }
 
-  updateUser(body, id) {
+  async updateUser(body, id) {
     const data = body;
     if (data.userPass) {
       data.userPass = hashSync(data.userPass, 15);
@@ -106,14 +105,10 @@ class Users {
     });
   }
 
-  deleteUser(req, res) {
-    const query = ` DELETE FROM Users WHERE userID = ${req.params.id};`
+  async deleteUser(req, res) {
+    const query = ` DELETE FROM Users WHERE userID = ${req};`
     db.query(query, (err) => {
       if (err) throw err;
-      res.json({
-        status: res.statusCode,
-        msg: "User record deleted, no longer user",
-      });
     });
   }
 }

@@ -2,10 +2,6 @@
 const User = require("../model/user");
 const user = new User();
 
-const { hash, compare, hashSync } = require("bcrypt");
-const bcrypt = require("bcrypt");
-const express = require("express");
-
 //             Link all functions from users Model
 // Get all user
 exports.showUsers = async (req, res) => {
@@ -32,34 +28,32 @@ exports.fetchUser = async (req, res) => {
   };
 
   // update user
-exports.updateUser = (req, res) => {
+exports.updateUser =  (req, res) => {
     const body = req.body;
     const id = req.params.id;
     user.updateUser(body, id, (err) => {
+        console.log('running here')
         if (err) {
             res.send(err);
-        } else{
-            res.json({
-                status: res.statusCode,
-                msg: "This User record has been updated",
-            });
         }
+    });
+    res.json({
+        status: res.statusCode,
+        msg: "This User record has been updated",
     });
 };
 
-delete user 
+  // delete user 
 exports.deleteUser = (req, res) => {
     const id = req.params.id;
     user.deleteUser(id, (err, results) => {
         if (err) {
             res.send(err);
-        } else{
-            res.json({
-                status: res.statusCode,
-                msg: "User record deleted" 
-            });
         }
     });
+    res.json({
+        status: res.statusCode,
+        msg: "User record deleted" 
+    });
 };
-
 
