@@ -5,43 +5,50 @@
         <div class="col-md-8">
           <div class="row">
             <div class="col-sm-6 col-md mb-4 mb-md-0">
-              <h3>Discover</h3>
+              <h3>•••</h3>
               <ul class="list-unstyled nav-links">
-                <li><a href="#">Website editors</a></li>
-                <li><a href="#">Online retail</a></li>
-                <li><a href="#">Get started</a></li>
-                <li><a href="#">Services</a></li>
+                <li>
+                  <router-link to="/">Home</router-link>
+                </li>
+                <li>
+                  <router-link to="/">About us</router-link>
+                </li>
+                <li>
+                  <router-link to="/">Meet our team</router-link>
+                </li>
+                <li>
+                  <router-link to="/">Make a reservation</router-link>
+                </li>
+                <li>
+                  <router-link to="/">Menu</router-link>
+                </li>
+                <li>
+                  <router-link to="/">Contact</router-link>
+                </li>
+                <li>    
+                  <router-link to="/">Order</router-link>
+                </li>
               </ul>
             </div>
             <div class="col-sm-6 col-md mb-4 mb-md-0">
-              <h3>About</h3>
+              <h3>Location</h3>
+              <p>
+                96 kings way, parow, Cape town, 7500
+              </p>
+            </div>
+            <div class="col-sm-6 col-md mb-4 mb-md-0">
+              <h3>Contact details</h3>
               <ul class="list-unstyled nav-links">
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Team</a></li>
+                <li><a href="#">021 485 7894</a></li>
+                <li><a href="#">info@tabemashou.com</a></li>
               </ul>
             </div>
             <div class="col-sm-6 col-md mb-4 mb-md-0">
-              <h3>Services</h3>
+              <h3>Opening Hours</h3>
               <ul class="list-unstyled nav-links">
-                <li><a href="#">Events</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Awards</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-6 col-md mb-4 mb-md-0">
-              <h3>Buy</h3>
-              <ul class="list-unstyled nav-links">
-                <li><a href="#">Where to Buy</a></li>
-                <li><a href="#">Shop Online</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-6 col-md mb-4 mb-md-0">
-              <h3>Help</h3>
-              <ul class="list-unstyled nav-links">
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Knowledge Base</a></li>
+                <li><a href="#">Mon -> Fri: 6:30am-23:00</a></li>
+                <li><a href="#">Saturday: 7:00am-23:00</a></li>
+                <li><a href="#">Sunday: 7:00am-21:00</a></li>
               </ul>
             </div>
           </div>
@@ -136,8 +143,6 @@
 </template>
 
 <script>
-// import { github } from 'fontawesome';
-
 
 export default {
     data(){
