@@ -98,10 +98,6 @@ class Users {
     const query = ` UPDATE Users SET ? WHERE userID = ? ;`
     db.query(query, [data, id], (err) => {
       if (err) throw err;
-      // res.json({
-      //   status: res.statusCode,
-      //   msg: "User record updated.",
-      // });
     });
   }
 

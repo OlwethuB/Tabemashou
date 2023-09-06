@@ -34,7 +34,7 @@ router.get("/bookings", booking.showBookings);
 router.get("/booking/:id", booking.fetchBookingId);
 
 // create reservation
-router.post("/booking", bodyParser.json(), booking.makeBooking);
+router.post("/book", bodyParser.json(), booking.makeBooking);
 
 // Update reservation
 router.put("/booking/:id", bodyParser.json(), booking.updateBooking);
