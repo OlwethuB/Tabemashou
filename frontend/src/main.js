@@ -18,10 +18,6 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
 library.add(faUserSecret)
 
-createApp(App)
-.component('font-awesome-icon', FontAwesomeIcon)
-.mount('#app')
-
 /* add each imported icon to the library */
 library.add(faTwitter, faUserSecret)
 
@@ -29,4 +25,5 @@ library.add(faTwitter, faUserSecret)
 defineElement(lottie.loadAnimation);
 
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(store).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+
