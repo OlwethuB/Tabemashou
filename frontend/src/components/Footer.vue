@@ -62,29 +62,25 @@
       <!-- Social media... -->
       <div class="row align-items-center">
         <div class="col-md-4">
-          <ul class="list-unstyled social mb-0 pb-0 nav-left">
-            <li>
+          <div class="list-unstyled social mb-0 pb-0 nav-left">
               <!-- Call -->
               <a class="btn btn-floating m-1" target="_blank" :title="call" href="https://i.kym-cdn.com/entries/icons/original/000/017/981/The_Real_Story_Behind_Black_Guy_On_The_Phone_Meme-500x500.jpg" role="button">
                 <lord-icon src="https://cdn.lordicon.com/ssvybplt.json" trigger="hover" colors="primary:#fff" style="width: 25px; height: 25px">
                 </lord-icon>
               </a>
-            </li>
-            <li>
+
               <!-- Location -->
               <a class="btn btn-floating m-1" target="_blank" :title="location" href="/" role="button">
-                <lord-icon src="https://cdn.lordicon.com/zzcjjxew.json" trigger="hover" colors="primary:#121331,secondary:#1663c7" state="hover-spin" style="width:25px;height:25px">
+                <lord-icon src="https://cdn.lordicon.com/zzcjjxew.json" trigger="hover" colors="primary:#fff,secondary:#1663c7" state="hover-spin" style="width:30px;height:30px">
                 </lord-icon>
               </a>
-            </li>
-            <li>
+
               <!-- Email -->
               <a class="btn btn-floating m-1" target="_blank" :title="email" href="/" role="button">
                 <lord-icon src="https://cdn.lordicon.com/ifqmqwui.json" trigger="hover" colors="primary:#fff" style="width: 25px; height: 25px">
                 </lord-icon>
               </a>
-            </li>
-            <li>
+
               <!-- Youtube -->
               <!-- Button trigger modal -->
               <a type="button"  :title="meme" href="https://www.youtube.com/watch?v=BBJa32lCaaY" class="btn btn-floating m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" role="button">
@@ -107,22 +103,19 @@
                     </div>
                 </div>
               </div>
-            </li>
-            <li>
+
               <!-- Github -->
               <a class="btn btn-floating m-1" target="_blank" :title="github"  href="https://github.com/OlwethuB" role="button">
                   <lord-icon src="https://cdn.lordicon.com/wluyqhxh.json" trigger="hover" colors="primary:#fff" style="width:25px;height:25px">
                   </lord-icon>
               </a>           
-            </li>
-            <li>
+
               <!-- CV download -->
               <a class="btn btn-floating m-1" target="_blank" :title="menu" download  href="https://pdf.ac/1UD8W3" role="button">
                   <lord-icon src="https://cdn.lordicon.com/fpmskzsv.json" trigger="hover" colors="primary:#fff" style="width:25px;height:25px">
                   </lord-icon>
               </a>
-            </li>
-          </ul>
+          </div>
         </div>
         <div class="col-md-4 text-center">
           <span class="small">Olwethu Bhiya &copy; All Rights Reserved.</span>
@@ -159,6 +152,9 @@ export default {
 </script>
 
 <style>
+footer{
+  background-color: #00284E;
+}
 /* logo */
 .logo{
     text-decoration: none;

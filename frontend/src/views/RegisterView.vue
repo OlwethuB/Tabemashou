@@ -39,7 +39,14 @@
     methods: {
       register() {
         // Send a request to the Node.js API to register the user
-        axios.post('http://localhost:5000/register', { firstName: this.firstName, userPass: this.userPass })
+        axios.post('http://localhost:5000/register', { 
+          firstName: this.firstName, 
+          lastName:this.lastName, 
+          userAge: this.userAge, 
+          emailAdd: this.emailAdd, 
+          userPass: this.userPass, 
+          userProfile: this.userProfile
+        })
           .then(response => {
             // Handle successful registration
             console.log(response.data);

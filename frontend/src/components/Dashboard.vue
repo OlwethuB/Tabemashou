@@ -5,7 +5,6 @@
       <p>Welcome to the dashboard!</p>
       <p v-if="user">
         <strong>Name:</strong> {{ user.firstName }}
-        <strong>Email:</strong> {{ user.emailAdd }}
       </p>
     </div>
   </template>

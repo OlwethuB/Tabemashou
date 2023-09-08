@@ -2,7 +2,7 @@
     <header  class="sticky-top">
         <div id="PromoHead" class="promo">
             <router-link class="navbar-brand" to="/">
-                <h1>Book now | Table specials</h1>
+                <h4>Book now | Table specials</h4>
            </router-link>
         </div>
        <nav id="header" class="navbar">
@@ -17,16 +17,16 @@
    </router-link>
              </li>
              <li class="nav-item">
-               <router-link id="links" class="nav-link" to="/about">About Us</router-link>
+               <router-link id="links" class="nav-link" to="/">About Us</router-link>
              </li>
              <li class="nav-item">
-               <router-link id="links" class="nav-link" to="/menu">Menu</router-link>
+               <router-link id="links" class="nav-link" to="/">Menu</router-link>
              </li>
              <li class="nav-item">
-               <router-link id="links" class="nav-link" to="/contact">Contact</router-link>
+               <router-link id="links" class="nav-link" to="/">Contact</router-link>
              </li>
-             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Other</a>
+             <li class="nav-item">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
                 <ul class="dropdown-menu">
                     <li><router-link class="dropdown-item" to="/">Book now</router-link></li>
                     <li><router-link class="dropdown-item" to="/">Something else here</router-link></li>
@@ -38,10 +38,11 @@
            <!-- Right end -->
            <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register |</a>
+                    <a class="nav-link" href="#">Register</a>
                 </li>
+                |
                 <li class="nav-item">
-                    <a class="nav-link" href="#">| Login</a>
+                    <a class="nav-link" href="#">Login</a>
                 </li>
             </ul>
          </div>
@@ -50,8 +51,6 @@
    </template>
    
    <script>
-import router from '@/router';
-
    
    </script>
    

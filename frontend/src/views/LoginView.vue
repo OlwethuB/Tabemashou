@@ -21,12 +21,12 @@
     methods: {
       login() {
         // Send a request to the Node.js API to log in the user
-        axios.post('http://localhost:5000/login', { email: this.email, password: this.password })
+        axios.post('http://localhost:5000/login', { firstName: this.firstName, userPass: this.userPass })
           .then(response => {
             // Handle successful login
             console.log(response.data);
             // Redirect the user to the dashboard
-            window.location.href = '/home';
+            window.location.href = '/';
           })
           .catch(error => {
             // Handle login error
