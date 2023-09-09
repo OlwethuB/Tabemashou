@@ -10,8 +10,8 @@ const connection = createPool ({
     multipleStatements: true,
     waitForConnections: true,
     queueLimit: 0,
-    connectionLimit: 60
-});
+    connectionLimit: 100
+}); 
 
 connection.getConnection((error) =>{
     if(error){

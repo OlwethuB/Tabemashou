@@ -19,7 +19,7 @@ exports.showUsers = async (req, res) => {
 
 //  Get single user
 exports.fetchUser = async (req, res) => {
-    user.fetchUser(req.params.id, res, (err, result) => {
+    user.fetchUser(req, res, (err, result) => {
       if (err) {
         res.send(err);
       }

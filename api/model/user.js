@@ -11,15 +11,15 @@ class Users {
       } else {
         result(null, results);
       }
-    }); 
+    });
   };
 
   fetchUser(req, res) {
-    const query = ` SELECT * FROM Users WHERE userID = ${req};`
+    const query = ` SELECT userID, firstName, lastName, userAge, userRole, emailAdd, userPass, UserProfile FROM Users WHERE userID = ${req.params.id} `;
     db.query(query, (err, result) => {
       if (err) throw err;
       res.json({
-        status: 200,
+        status: res.statusCode,
         result,
       });
     });
@@ -30,13 +30,13 @@ class Users {
   // if this works...
   login(req, res) {
     const { firstName, userPass } = req.body;
-    const query = `SELECT * FROM Users WHERE firstName = "${firstName}"`; 
+    const query = `SELECT * FROM Users WHERE firstName = "${firstName}"`;
     db.query(query, async (err, result) => {
       if (err) throw err;
       if (!result?.length) {
         res.json({
           status: res.statusCode,
-          msg: "Provided wrong email, try again",
+          msg: "Provided wrong name, try again",
         });
       } else {
         await compare(userPass, result[0].userPass, (cErr, cResult) => {
@@ -95,14 +95,14 @@ class Users {
     if (data.userPass) {
       data.userPass = hashSync(data.userPass, 15);
     }
-    const query = ` UPDATE Users SET ? WHERE userID = ? ;`
+    const query = ` UPDATE Users SET ? WHERE userID = ? ;`;
     db.query(query, [data, id], (err) => {
       if (err) throw err;
     });
   }
 
   async deleteUser(req, res) {
-    const query = ` DELETE FROM Users WHERE userID = ${req};`
+    const query = ` DELETE FROM Users WHERE userID = ${req};`;
     db.query(query, (err) => {
       if (err) throw err;
     });

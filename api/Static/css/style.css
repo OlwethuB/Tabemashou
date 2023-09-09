@@ -1,0 +1,38 @@
+body {
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+  }
+  
+  h1 {
+    font-size: 40px;
+  }
+  table.GeneratedTable {
+    width: 80%;
+    margin-left: 10%;
+    background-color: #adb5bd;
+    border-collapse: collapse;
+    border-width: 4px;
+    border-color: #050505;
+    border-style: solid;
+    color: #000000;
+  }
+  
+  table.GeneratedTable td,
+  table.GeneratedTable th {
+    border-width: 4px;
+    border-color: #050505;
+    border-style: solid;
+    padding: 5px;
+  }
+  
+  table.GeneratedTable thead {
+    background-color: #0281C5;
+  }
+  
+  th {
+    font-size: 25px;
+  }
+  td {
+    font-size: 17px;
+  }
