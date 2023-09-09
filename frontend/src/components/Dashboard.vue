@@ -10,18 +10,18 @@
   </template>
   
   <script>
-    import axios from 'axios';
 
-  export default {
+export default {
+  components: {},
+  computed: {
     data() {
       return {
         user: ''
       };
     },
-    async mounted() {
-      // Get the user from the local storage or database
-      const response = await axios.get('http://localhost:5000/user/:id');
-      this.user = response.data;
-    }
-  };
+  },
+  mounted() {
+    this.$store.dispatch("FetchUser");
+  },
+}
   </script>

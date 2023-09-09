@@ -43,7 +43,7 @@ export default createStore({
         console.error("Error fetching Users:", error);
       }
     },
-    async fetchProduct(userID) {
+    async fetchUser(userID) {
       try {
         const { data } = await axios.get(`${Api}user/:id`);
         if (data.result) {
@@ -77,17 +77,17 @@ export default createStore({
     async fetchReservations(context) {
       this.isLoading = true;
       try {
-        const { data } = await axios.get(`${Api}products`);
+        const { data } = await axios.get(`${Api}bookings`);
         if (data.results) {
-          context.commit("setProducts", data.results);
+          context.commit("setBookings", data.results);
         }
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("Error fetching Reservations:", error);
       }
     },
     async fetchReservation(bookingID) {
       try {
-        const { data } = await axios.get(`${Api}/:id`);
+        const { data } = await axios.get(`${Api}bookings/:id`);
         if (data.result) {
           bookingID.commit("setProduct", data.result);
         }
