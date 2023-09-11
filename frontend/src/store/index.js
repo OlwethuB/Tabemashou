@@ -33,6 +33,7 @@ export default createStore({
     },
   },
   actions: {
+    // Users section
     async fetchUsers(context) {
       try {
         const { data } = await axios.get(`${Api}users`);
@@ -53,6 +54,8 @@ export default createStore({
         console.error(error);
       }
     },
+
+    // Products/dishes/menu section
     async fetchProducts(context) {
       this.isLoading = true;
       try {
@@ -74,6 +77,8 @@ export default createStore({
         console.error(error);
       }
     },
+
+    // Reservation sector
     async fetchReservations(context) {
       this.isLoading = true;
       try {

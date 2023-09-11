@@ -5,6 +5,7 @@ import VueRouter from "vue-router";
 import Login from "../views/LoginView.vue";
 import Register from "../views/RegisterView.vue";
 import Dashboard from "../components/Dashboard.vue";
+import AdminMenu from "../views/AdminMenu.vue";
 
 // Vue.use(VueRouter);
 
@@ -34,6 +35,30 @@ const routes = [
   {
     path: "/dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/AdminMenu",
+    component: AdminMenu,
+  },
+  {
+    path: "/dashboard",
+    component: Dashboard,
+  },
+  {
+    path: "/dashboard",
+    component: Dashboard,
+  },
+  {
+    path: "/dashboard",
+    component: Dashboard,
+  },
+  {
+    path: "/dashboard",
+    component: Dashboard,
+  },
+  {
+    path: "/dashboard",
+    component: Dashboard
   },
 ];
 

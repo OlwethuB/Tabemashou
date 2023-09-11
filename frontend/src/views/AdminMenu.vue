@@ -1,7 +1,10 @@
 <template>
+    <navigation/>
+    <br>
     <!-- Navigation and promo -->
     <h1>Admin Dashboard</h1>
     <!-- Admin Navigation -->
+    <br>
     <div>
         <ul class="nav justify-content-center nav-tabs">
             <li class="nav-item">
@@ -22,7 +25,9 @@
     <!-- Current Table -->
     <section>
         <div>
-            <router-link :to="{name: 'Create'}" class="button is-success mt-5"> Add New </router-link>
+            <!-- <router-link :to="{name: 'Create'}" class="button is-success mt-5"> Add New </router-link> -->
+
+            <!-- Start of table -->
             <table class="table is-striped is-bordered mt-2 is-fullwidth">
                 <thead>
                     <tr>
@@ -35,42 +40,110 @@
                 <tbody>
                     <tr v-for="dish in dishes" :key="dish.prodID">
                         <td>{{ dish.prodName }}</td>
-                        <td> {{ dish.amount }}</td>
+                        <td>R {{ dish.amount }}</td>
                         <td> {{ dish.category }}</td>
                         <td class="has-text-centered">
-                            <router-link :to=" { name: 'Edit', params: {id: dish.prodID}}" class="button is-info is-small"> Edit </router-link>
-                            <a class="button is-danger is-small" @click="deleteProduct(prod.prodID)"> Delete </a>
+                                        <!-- Button trigger modal -->
+                        <button :to=" { name: 'EditDish', params: {id: dish.prodID}}"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
+                            Edit
+                        </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Item</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <editProduct :productData="dish"/>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+                                        <button type="submit" class="btn btn-success">Save</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="button is-danger is-small" @click="deleteProduct(dish.prodID)"> Delete </a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
+                <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add New
+            </button>
 
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Create a new menu item</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <newProduct />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+<Footer/>
 
 </template>
 
 <script>
+import newProduct from "@/components/AddItem.vue";
+import editProduct from "@/components/EditDish.vue";
+import Navigation from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
     // Import axios
-    import axios from 'axios';
+import axios from 'axios';
+
+
 
 export default {
-  components: {},
+//   Navigation,
+//   Footer,
+//   newProduct,
+//   editProduct,
+  components: {
+    Navigation,
+    Footer,
+    newProduct,
+    editProduct
+  },  
+
+
+  data() {
+    return this.$store.state.products;
+  },
   computed: {
     dishes() {
       return this.$store.state.products;
     },
   },
   mounted() {
+    
     this.$store.dispatch("fetchProducts");
   },
 
-  methods: {
+  methods: { 
             // Delete product
         async  deleteProduct(id) {
             try{
                 await axios.delete(`http://localhost:5000/products/${id}`);
-                this.FetchProduct();
+                this.$store.dispatch("fetchProducts");
             } catch (err) {
                 console.log(err);
             }
@@ -78,3 +151,11 @@ export default {
     },
 };
 </script>
+
+<style>
+.table{
+    width: 80%;
+    overflow-x: scroll;
+}
+
+</style>

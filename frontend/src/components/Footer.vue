@@ -1,7 +1,10 @@
 <template>
+<br>
   <footer class="footer-95942">
+<br>
     <div class="container">
       <div class="row justify-content-center">
+        <br>
         <div class="col-md-8">
           <div class="row">
             <div class="col-sm-6 col-md mb-4 mb-md-0">

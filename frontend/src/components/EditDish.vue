@@ -3,31 +3,31 @@
         <div class="field">
             <label class="label"> Dish Name </label>
             <div class="control">
-                <input class="input" type="text" v-model="prodName"/>
+                <input class="input" type="text" v-model="payload.prodName"/>
             </div>
         </div>
         <div class="field">
             <label class="label"> Dish Description </label>
             <div class="control">
-                <input class="input" type="text" v-model="description"/>
+                <input class="input" type="text" v-model="payload.description"/>
             </div>
         </div>
         <div class="field">
             <label class="label"> Amount </label>
             <div class="control">
-                <input class="input" type="text" v-model="amount"/>
+                <input class="input" type="text" v-model="payload.amount"/>
             </div>
         </div>
         <div class="field">
             <label class="label"> Category </label>
             <div class="control">
-                <input class="input" type="text" v-model="category"/>
+                <input class="input" type="text" v-model="payload.category"/>
             </div>
         </div>
         <div class="field">
             <label class="label"> Image </label>
             <div class="control">
-                <input class="input" type="text" v-model="prodUrl"/>
+                <input class="input" type="text" v-model="payload.prodUrl"/>
             </div>
         </div>
         <div class="control">
@@ -39,59 +39,42 @@
 <script>
         // Import axios
     import axios from "axios";
-import { response } from 'express';
+// import { response } from 'express';
 
     export default {
         name: "EditDish",
+        props: ["productData"],
         data() {
             return {
-                prodName: product.prodName,
-                description: product.description,
-                amount: product.amount,
-                category: product.category,
-                prodUrl: product.prodUrl
+                payload:{
+                   prodID: this.productData?.prodID,
+                   prodName: this.productData.prodName,
+                   description: this.productData.description,
+                   amount: this.productData.amount,
+                   category: this.productData.category,
+                   prodUrl: this.productData.prodUrl
+                }
             };
         },
-
-        created: function () {
-            this.getProductById();
+        computed:{
+            product(){
+                return this.$store.state.product;
+            }
         },
 
         methods: {
-                // Get product By ID
-            async getProductById() {
-                try {
-                    const response = await axios.get(
-                        `http://localhost:5000/products/${this.$route.params.id}`
-                    );
-                    this.prodName = response.data.prodName;
-                    this.description = response.data.description;
-                    this.amount = response.data.amount;
-                    this.category = response.data.category;
-                    this.prodUrl = response.data.prodUrl;
-                } catch (err) {
-                    console.log(err);
-                }
-            },
-
                 // Update product
             async updateProduct() {
                 try {
-                    await axios.put( `http://localhost:5000/products/${this.$route.params.id}`,
-                        {
-                            prodName: this.prodName,
-                            description: this.description,
-                            amount: this.amount,
-                            category: this.category,
-                            prodUrl: this.prodUrl,
-                        }
+                    await axios.patch( `http://localhost:5000/products/${this.payload.prodID}`,
+                    this.payload
                     );
                     this.prodName = "";
                     this.description = "";
                     this.amount = "";
                     this.category = "";
                     this.prodUrl = "";
-                    this.$router.push("/");
+                    this.$router.push("/adminMenu");
                 } catch (err) {
                     console.log(err);
                 }

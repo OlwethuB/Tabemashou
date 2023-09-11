@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle"
 import 'animate.css';
 import lottie from 'lottie-web';
+import axios from 'axios'
 import { defineElement } from 'lord-icon-element';
 
 /* import the fontawesome core */
