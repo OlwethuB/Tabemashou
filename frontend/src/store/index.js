@@ -11,7 +11,7 @@ export default createStore({
     reservations: null,
     reservation: null,
   },
-  getters: {},
+  getters: {},  
   mutations: {
     setUsers(state, users) {
       state.users = users;

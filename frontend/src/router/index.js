@@ -6,6 +6,7 @@ import Login from "../views/LoginView.vue";
 import Register from "../views/RegisterView.vue";
 import Dashboard from "../components/Dashboard.vue";
 import AdminMenu from "../views/AdminMenu.vue";
+import Book from "../views/BookingForm.vue";
 
 // Vue.use(VueRouter);
 
@@ -35,14 +36,14 @@ const routes = [
   {
     path: "/dashboard",
     component: Dashboard,
-  },
+  },  
   {
-    path: "/AdminMenu",
+    path: "/adminMenu",
     component: AdminMenu,
   },
   {
-    path: "/dashboard",
-    component: Dashboard,
+    path: "/book",
+    component: Book,
   },
   {
     path: "/dashboard",
