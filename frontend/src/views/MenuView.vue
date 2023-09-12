@@ -45,7 +45,7 @@
             </div>
         </section>
 
-        <section>
+        <!-- <section>
             <div class="product-list row">
                 <div
                 class="col-md-4 product-card"
@@ -65,7 +65,7 @@
                 </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
     <!-- Insta... -->
     
@@ -74,17 +74,17 @@
 </template>
 
 <script>  
-  export default {
-  components: {Projects,NavSec},
-  computed: {
-    projects(){
-      return this.$store.state.projects
-    }
-  },
-  mounted(){
-    this.$store.dispatch("getProjects");
-  },
-}
+//   export default {
+//   components: {Projects,NavSec},
+//   computed: {
+//     projects(){
+//       return this.$store.state.projects
+//     }
+//   },
+//   mounted(){
+//     this.$store.dispatch("getProjects");
+//   },
+// }
   </script>
   
   <style scoped>

@@ -1,17 +1,6 @@
 <template>
-  <navigation />
-
-  <h1>Make a reservation</h1>
-
-  <section>
-    <h2>Request a reservation</h2>
-    <h4>
-      To help us find the best table for you, select the preferred party size,
-      date, and time of your reservation.
-    </h4>
-
-    <form @submit.prevent="createBooking"> 
-      <div class="field">
+  <form @submit.prevent="createBooking">
+    <div class="field">
         <label class="label" for="name"> Your Name </label>
         <div class="control">
           <input class="input" type="text" v-model="name" id="name" />
@@ -57,13 +46,11 @@
         <div class="col">
           <label class="label" for="time"> Time </label>
           <br>
-            <input class="input" type="time" v-model="time" />
+          <input class="input" type="time" v-model="time" />
         </div>
       </div>
-
       <button type="submit" class="btn btn-create">Book</button>
-    </form>
-  </section>
+  </form>
 </template>
 
 <script>

@@ -7,9 +7,14 @@ export default createStore({
     users: null,
     user: null,
     products: null,
+    breakfast: null,
+    tisers: null,
+    main: null,
+    dessert: null,
     product: null,
     reservations: null,
     reservation: null,
+    last: null,
   },
   getters: {},  
   mutations: {
@@ -22,6 +27,18 @@ export default createStore({
     setProducts(state, products) {
       state.products = products;
     },
+    setBreakfast(state, breakfast) {
+      state.breakfast = breakfast;
+    },
+    setTisers(state, tisers) {
+      state.tisers = tisers;
+    },
+    setMains(state, main) {
+      state.main = main;
+    },
+    setDesserts(state, dessert) {
+      state.dessert = dessert;
+    },
     setProduct(state, product) {
       state.product = product;
     },
@@ -30,6 +47,9 @@ export default createStore({
     },
     setBooking(state, reservation) {
       state.reservation = reservation;
+    },
+    setLast(state, last) {
+      state.last = last;
     },
   },
   actions: {
@@ -67,6 +87,50 @@ export default createStore({
         console.error("Error fetching products:", error);
       }
     },
+    async fetchBreakfast(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}breakfast`);
+        if (data.results) {
+          context.commit("setBreakfast", data.results);
+        }
+      } catch (error) {
+        console.error("Error getting Breakfast:", error);
+      }
+    },
+    async fetchTisers(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}tisers`);
+        if (data.results) {
+          context.commit("setTisers", data.results);
+        }
+      } catch (error) {
+        console.error("Error getting Tisers:", error);
+      }
+    },
+    async fetchMains(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}main`);
+        if (data.results) {
+          context.commit("setMains", data.results);
+        }
+      } catch (error) {
+        console.error("Error bieng main:", error);
+      }
+    },
+    async fetchDesserts(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}dessert`);
+        if (data.results) {
+          context.commit("setDesserts", data.results);
+        }
+      } catch (error) {
+        console.error("Error bieng dessert:", error);
+      }
+    },
     async fetchProduct(productId) {
       try {
         const { data } = await axios.get(`${Api}products/:id`);
@@ -92,12 +156,23 @@ export default createStore({
     },
     async fetchReservation(bookingID) {
       try {
-        const { data } = await axios.get(`${Api}bookings/:id`);
+        const { data } = await axios.get(`${Api}booking/:id`);
         if (data.result) {
           bookingID.commit("setProduct", data.result);
         }
       } catch (error) {
         console.error(error);
+      }
+    },
+    async fetchLastBooking(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}booking`);
+        if (data.result) {
+          context.commit("setLast", data.result);
+        }
+      } catch (error) {
+        console.error("Error fetching This reservation:", error);
       }
     },
   },

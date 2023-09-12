@@ -8,6 +8,8 @@ import 'animate.css';
 import lottie from 'lottie-web';
 import axios from 'axios'
 import { defineElement } from 'lord-icon-element';
+import Swal from 'sweetalert2/src/sweetalert2.js'
+
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'

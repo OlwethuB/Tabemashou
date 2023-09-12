@@ -26,9 +26,9 @@
                <router-link id="links" class="nav-link" to="/">Contact</router-link>
              </li>
              <li class="nav-item">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: red;">Other</a>
                 <ul class="dropdown-menu">
-                    <li><router-link class="dropdown-item" to="/">Book now</router-link></li>
+                    <li><router-link class="dropdown-item" to="/book">Book now</router-link></li>
                     <li><router-link class="dropdown-item" to="/">Something else here</router-link></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><router-link class="dropdown-item disabled" aria-disabled="true" to="/">Order</router-link></li>

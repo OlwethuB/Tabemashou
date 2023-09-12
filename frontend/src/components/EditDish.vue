@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="field">
-            <label class="label"> Dish Description </label>
+            <label class="label"> Dish Description </label> 
             <div class="control">
                 <input class="input" type="text" v-model="payload.description"/>
             </div>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="control">
-            <button class="button is-success" @click="updateProduct"> Update </button>
+            <button class="btn btn-success" type="submit" @click="updateProduct"> Update </button>
         </div>
     </div>
 </template>
@@ -60,6 +60,10 @@
             product(){
                 return this.$store.state.product;
             }
+        },
+
+        mounted() {
+            this.$store.dispatch("fetchProduct", this.id );
         },
 
         methods: {

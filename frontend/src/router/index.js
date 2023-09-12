@@ -6,11 +6,29 @@ import Login from "../views/LoginView.vue";
 import Register from "../views/RegisterView.vue";
 import Dashboard from "../components/Dashboard.vue";
 import AdminMenu from "../views/AdminMenu.vue";
+import AdminRes from "../views/AdminRes.vue";
+import AdminUsers from "../views/AdminUsers.vue";
 import Book from "../views/BookingForm.vue";
+import Confirm from "../views/BookingConf.vue"; 
+
+import About from "../views/AboutUs.vue";
+import Contact from "../views/ContactForm.vue";
+import Menu from "../views/MenuView.vue";
+import SingleUser from "../views/SingleUser.vue";
 
 // Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: Register,
+  },
   {
     path: "/",
     name: "home",
@@ -19,47 +37,52 @@ const routes = [
   {
     path: "/about",
     name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () =>
-    //   import(/* webpackChunkName: "about" */ "../views/AboutUs.vue"),
+    component: About
   },
   {
-    path: "/login",
-    component: Login,
+    path: "/contact",
+    name: "contact",
+    component: Contact,
   },
   {
-    path: "/register",
-    component: Register,
+    path: "/menu",
+    name: "menu",
+    component: Menu,
+  },
+  {
+    path: "/singleUser",
+    name: "Single User",
+    component: SingleUser
   },
   {
     path: "/dashboard",
+    name: "dashboard",
     component: Dashboard,
   },  
   {
     path: "/adminMenu",
+    name: "Menu's Admin",
     component: AdminMenu,
   },
   {
+    path: "/adminUsers",
+    name: "User's Admin",
+    component: AdminUsers,
+  },
+  {
+    path: "/adminRes",
+    name: "Res's Admin",
+    component: AdminRes,
+  },
+  {
     path: "/book",
+    name: "book",
     component: Book,
   },
   {
-    path: "/dashboard",
-    component: Dashboard,
-  },
-  {
-    path: "/dashboard",
-    component: Dashboard,
-  },
-  {
-    path: "/dashboard",
-    component: Dashboard,
-  },
-  {
-    path: "/dashboard",
-    component: Dashboard
+    path: "/confirm",
+    name: "confirm",
+    component: Confirm,
   },
 ];
 

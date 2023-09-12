@@ -12,7 +12,7 @@
     <label for="category">Category:</label>
     <select name="category" v-model="category" id="category" form="categoryF">
       <option value="Breakfast">Breakfast</option>
-      <option value="Appetizer">Appetizer</option>
+      <option value="Appetizer">Appetiser</option>
       <option value="Main meal">Main meal</option>
       <option value="Dessert">Dessert</option>
     </select>

@@ -44,12 +44,12 @@
                         <td> {{ dish.category }}</td>
                         <td class="has-text-centered">
                                         <!-- Button trigger modal -->
-                        <button :to=" { name: 'EditDish', params: {id: dish.prodID}}"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" :data-bs-target="`#${editModal}`+`${dish.prodID}`">
                             Edit
-                        </button>
+                        </button> 
 
                             <!-- Modal -->
-                            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" :id="`${editModal}`+`${dish.prodID}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content">
                                     <div class="modal-header">
@@ -61,7 +61,6 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
-                                        <button type="submit" class="btn btn-success">Save</button>
                                     </div>
                                     </div>
                                 </div>
@@ -126,9 +125,12 @@ export default {
 
 
   data() {
-    return this.$store.state.products;
+    return {
+        editModal: 'productModal'
+    };
   },
   computed: {
+
     dishes() {
       return this.$store.state.products;
     },
@@ -158,4 +160,4 @@ export default {
     overflow-x: scroll;
 }
 
-</style>
+</style> 
