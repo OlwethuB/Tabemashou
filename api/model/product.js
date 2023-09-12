@@ -14,6 +14,54 @@ class Products {
         });
     };
 
+    // Get all Breakfast products
+    getBreakfast = (result) => {
+        db.query( "SELECT * FROM Products WHERE category = 'Breakfast'", (err, results) => {
+            if(err) {
+                console.log(err);
+                result(err, null);
+            } else{
+                result(null, results);
+            }
+        });
+    };
+
+    // Get all appetiser products
+    getTiser = (result) => {
+        db.query( "SELECT * FROM Products WHERE category = 'Appetizer'", (err, results) => {
+            if(err) {
+                console.log(err);
+                result(err, null);
+            } else{
+                result(null, results);
+            }
+        });
+    };
+
+    // Get all main meal products
+    getMain = (result) => {
+        db.query( "SELECT * FROM Products WHERE category = 'Main meal'", (err, results) => {
+            if(err) {
+                console.log(err);
+                result(err, null);
+            } else{
+                result(null, results);
+            }
+        });
+    };
+
+    // Get all dessert products
+    getDessert = (result) => {
+        db.query( "SELECT * FROM Products WHERE category = 'Dessert'", (err, results) => {
+            if(err) {
+                console.log(err);
+                result(err, null);
+            } else{
+                result(null, results);
+            }
+        });
+    };
+
     // Get single product 
     getProductId = (id, result) => {
         db.query( "SELECT * FROM Products WHERE prodID = ?", [id], (err, results) => {

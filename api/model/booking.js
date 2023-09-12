@@ -10,9 +10,21 @@ class Bookings {
                 result(err, null);
             } else{
                 result(null, results);
-            }
+            } 
         });
     };
+
+    // Get last product 
+    getBooking = (result) => {
+        db.query( "SELECT * FROM Bookings ORDER BY bookingID DESC LIMIT 1" ,(err, results) => {
+            if (err) {
+                console.log(err);
+                result(err, null);
+            } else{
+                result(null, results);
+            }
+        });
+   };
 
     // Get single product 
     getBookingId = (id, result) => {

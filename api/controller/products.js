@@ -16,6 +16,61 @@ exports.showProducts = (req, res) => {
         }
     });
 };
+    // Get all Breakfast products
+exports.showBreakfast = (req, res) => {
+    product.getBreakfast((err, results) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({
+                status: res.statusCode,
+                results,
+            });
+        }
+    });
+};
+
+    // Get all Appetisers products
+exports.showTisers = (req, res) => {
+    product.getTiser((err, results) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({
+                status: res.statusCode,
+                results,
+            });
+        }
+    });
+};
+
+    // Get all Main meals products
+exports.showMain = (req, res) => {
+    product.getMain((err, results) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({
+                status: res.statusCode,
+                results,
+            });
+        }
+    });
+};
+
+    // Get all Dessert products
+exports.showDessert = (req, res) => {
+    product.getDessert((err, results) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({
+                status: res.statusCode,
+                results,
+            });
+        }
+    });
+};
 
 
 //  Get single product
@@ -47,7 +102,7 @@ exports.createProduct = (req, res) => {
         }
     });
 };
-
+ 
 
 // update product 
 exports.updateProduct = (req, res) => {

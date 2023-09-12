@@ -8,10 +8,23 @@ exports.showBookings = (req, res) => {
     booking.getBookings((err, results) => {
         if (err) {
             res.send(err);
-        } else {
+        } else { 
             res.json({
                 status: res.statusCode,
                 results,
+            });
+        }
+    });
+};
+
+exports.lastBooking = (req, res) => {
+    booking.getBooking((err, result) => {
+        if (err) {
+            res.send(err);
+        } else { 
+            res.json({
+                status: res.statusCode,
+                result,
             });
         }
     });

@@ -6,9 +6,21 @@ const people = new People
 const user = require("../controller/users");
 var router = require("express").Router();
 
-// Product's router
+      // Product's router
 // Get all products
 router.get("/products", product.showProducts);
+
+    // Get all Breakfast products
+router.get("/breakfast", product.showBreakfast);
+
+    // Get all appetiser products
+router.get("/tisers", product.showTisers);
+
+    // Get all main meals products
+router.get("/main", product.showMain);
+
+    // Get all dessert products
+router.get("/dessert", product.showDessert);
 
 // Get single product
 router.get("/products/:id", product.fetchProductId);
@@ -29,6 +41,9 @@ router.delete("/products/:id", product.deleteProduct);
                   // Booking router
 // Get all reservations
 router.get("/bookings", booking.showBookings);
+
+// Get all reservations
+router.get("/booking", booking.lastBooking);
 
 // Get single reservation 
 router.get("/booking/:id", booking.fetchBookingId);
