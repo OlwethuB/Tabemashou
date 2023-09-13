@@ -78,10 +78,10 @@ class Users {
       if (err) throw err;
       // create token
       let token = createToken(user);
-      res.cookie("legitUser", token, {
-        maxAge: 3000,
-        httpOnly: true,
-      });
+      // res.cookie("legitUser", token, {
+      //   maxAge: 3000,
+      //   httpOnly: true,
+      // });
       res.json({
         status: res.statusCode,
         token,

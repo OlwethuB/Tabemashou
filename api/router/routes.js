@@ -82,7 +82,7 @@ router.post("/login", bodyParser.json(), (req, res) => {
 
 // logout
 router.post("/logout", (req, res) => {
-  res.clearCookie("token");
+  // res.clearCookie("token");
   res.status(200).json({ message: "Logged out successfully"})
 })
 
