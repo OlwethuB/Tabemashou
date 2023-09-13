@@ -3,7 +3,7 @@
         <div class="field">
             <label class="label"> Dish Name </label>
             <div class="control">
-                <input class="input" type="text" v-model="payload.prodName"/>
+                <input class="input" type="text" v-model="payload.prodName"/> 
             </div>
         </div>
         <div class="field">

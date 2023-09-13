@@ -3,37 +3,37 @@
     <div>
       <label for="firstName">first Name: </label>
       <br>
-      <input type="firstName" v-model="firstName" id="firstName">
+      <input type="text" v-model="firstName" id="firstName">
     </div>
 
     <div>
       <label for="lastName">Last Name: </label>
       <br>
-      <input type="lastName" v-model="lastName" id="lastName">
+      <input type="text" v-model="lastName" id="lastName">
     </div>
 
     <div>
       <label for="userAge">Birth date: </label>
       <br>
-      <input type="userAge" v-model="userAge" id="userAge">
+      <input type="date" v-model="userAge" id="userAge">
     </div>
 
     <div>
       <label for="emailAdd">Email Address: </label>
       <br>
-      <input type="emailAdd" v-model="emailAdd" id="emailAdd">
+      <input type="text" v-model="emailAdd" id="emailAdd">
     </div>
 
     <div>
       <label for="userPass">Password:</label>
       <br>
-      <input type="userPass" v-model="userPass" id="userPass">
+      <input type="text" v-model="userPass" id="userPass">
     </div>
 
     <div>
       <label for="userProfile">Profile Picture link:</label>
       <br>
-      <input type="userProfile" v-model="userProfile" id="userProfile">
+      <input type="text" v-model="userProfile" id="userProfile">
     </div>
 
     <button type="submit">Register</button> <button type="reset">Clear form</button>

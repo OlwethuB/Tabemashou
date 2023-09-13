@@ -43,6 +43,8 @@
 
 <script>
 import axios from "axios";
+import Swal from 'sweetalert2/src/sweetalert2.js'
+
 
 export default {
   data() {

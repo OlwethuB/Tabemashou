@@ -62,7 +62,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <!-- <editBooking :bookingData="reservation"/> -->
+                                        <editBooking :bookingData="reservation"/>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a class="button is-danger is-small" @click="deleteBooking(reservation.prodID)"> Delete </a>
+                            <a class="btn btn-danger btn-small" @click="deleteBooking(reservation.bookingID)"> Delete </a>
                         </td>
                     </tr>
                 </tbody>
@@ -92,7 +92,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- <newReservation /> -->
+                        <newReservation />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
@@ -108,8 +108,8 @@
 </template>
 
 <script>
-// import newReservation from "@/components/AddItem.vue";
-// import editBooking from "@/components/EditDish.vue";
+import newReservation from "@/components/AddRes.vue";
+import editBooking from "@/components/EditRes.vue";
 import Navigation from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
     // Import axios
@@ -118,15 +118,11 @@ import axios from 'axios';
 
 
 export default {
-//   Navigation,
-//   Footer,
-//   newProduct,
-//   editProduct,
   components: {
     Navigation,
     Footer,
-    // newProduct,
-    // editProduct
+    newReservation,
+    editBooking
   },  
 
 
@@ -142,7 +138,7 @@ export default {
   },
   mounted() {
     
-    this.$store.dispatch("setBookings");
+    this.$store.dispatch("fetchReservations");
   },
 
   methods: { 
@@ -150,7 +146,7 @@ export default {
         async  deleteBooking(id) {
             try{
                 await axios.delete(`http://localhost:5000/booking/${id}`);
-                this.$store.dispatch("setBookings");
+                this.$store.dispatch("fetchReservations");
             } catch (err) {
                 console.log(err);
             }

@@ -38,11 +38,11 @@
                 </thead>
                 <tbody>
                     <tr v-for="user in users" :key="user.userID">
+                        <td> <img class="Up" :src="user.userProfile" :alt="user.firstName" /></td>
                         <td>{{ user.firstName }} {{ user.lastName }}</td>
-                        <td>R {{ user.amount }}</td>
-                        <td> {{ user.category }}</td>
-                        <td>R {{ user.amount }}</td>
-                        <td> {{ user.category }}</td>
+                        <td> {{ user.userAge }}</td>
+                        <td> {{ user.userRole }}</td>
+                        <td> {{ user.emailAdd }}</td>
                         <td class="has-text-centered">
                                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" :data-bs-target="`#${editModal}`+`${user.userID}`">
@@ -104,8 +104,8 @@
 </template>
 
 <script>
-// import newUser from "@/components/AddItem.vue";
-// import editUser from "@/components/EditDish.vue";
+import newUser from "@/components/AddUser.vue";
+import editUser from "@/components/EditUser.vue";
 import Navigation from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
     // Import axios
@@ -114,15 +114,11 @@ import axios from 'axios';
 
 
 export default {
-//   Navigation, 
-//   Footer,
-//   newProduct,
-//   editProduct,
   components: {
     Navigation,
     Footer,
-    // newUser,
-    // editUser
+    newUser,
+    editUser
   },  
 
   data() {
@@ -158,6 +154,11 @@ export default {
 .table{
     width: 80%;
     overflow-x: scroll;
+}
+
+.Up{
+    width: 10%;
+    height: 10%
 }
 
 </style>

@@ -3,20 +3,20 @@
         <div class="field">
             <label class="label"> User Name </label>
             <div class="control">
-                <input class="input" type="text" placeholder="Name" v-model="payload.FirstName"/>
+                <input class="input" type="text" placeholder="Name" v-model="payload.firstName"/>
                 <input class="input" type="text" placeholder="Surname" v-model="payload.lastName"/>
             </div>
         </div>
         <div class="field">
             <label class="label"> Birth Date </label>
             <div class="control">
-                <input class="input" type="text" v-model="payload.UserAge"/>
+                <input class="input" type="date" v-model="payload.userAge"/>
             </div>
         </div>
         <div class="field">
             <label class="label"> Role </label>
             <div class="control">
-                <input class="input" type="text" v-model="payload.UserRole"/>
+                <input class="input" type="text" v-model="payload.userRole"/>
             </div>
         </div>
         <div class="field">
@@ -54,14 +54,14 @@
         data() {
             return {
                 payload:{
-                   userID: this.productData?.userID,
-                   FirstName: this.productData.FirstName,
-                   lastName: this.productData.lastName,
-                   UserAge: this.productData.UserAge,
-                   UserRole: this.productData.UserRole,
-                   emailAdd: this.productData.emailAdd,
-                   userPass: this.productData.userPass,
-                   userProfile: this.productData.userProfile
+                   userID: this.UserData?.userID,
+                   firstName: this.UserData.firstName,
+                   lastName: this.UserData.lastName,
+                   userAge: this.UserData.userAge,
+                   userRole: this.UserData.userRole,
+                   emailAdd: this.UserData.emailAdd,
+                   userPass: this.UserData.userPass,
+                   userProfile: this.UserData.userProfile
                 }
             };
         },
@@ -82,10 +82,10 @@
                     await axios.patch( `http://localhost:5000/user/${this.payload.userID}`,
                     this.payload
                     );
-                    this.FirstName = "";
+                    this.firstName = "";
                     this.lastName = "";
-                    this.UserAge = "";
-                    this.UserRole = "";
+                    this.userAge = "";
+                    this.userRole = "";
                     this.emailAdd = "";
                     this.userPass = "";
                     this.userProfile = "";

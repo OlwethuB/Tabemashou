@@ -130,13 +130,11 @@ export default {
     };
   },
   computed: {
-
     dishes() {
       return this.$store.state.products;
     },
   },
   mounted() {
-    
     this.$store.dispatch("fetchProducts");
   },
 
