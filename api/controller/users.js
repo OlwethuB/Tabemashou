@@ -5,7 +5,7 @@ const user = new User();
 //             Link all functions from users Model
 // Get all user
 exports.showUsers = async (req, res) => {
-     user.fetchUsers((err, results) => {
+     user.fetchUsers((err, results) => { 
         if (err) {
             res.send(err);
         } else {

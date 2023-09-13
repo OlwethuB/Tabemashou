@@ -70,7 +70,7 @@ class Users {
     //  Payload
     const user = {
       firstName: data.firstName,
-      userPass: data.userPass,
+      userPass: data.userPass,  
     };
     // query
     const query = ` INSERT INTO Users SET ?`;
