@@ -46,7 +46,7 @@ export default {
           description: this.description,
           amount: this.amount,
           category: this.category,
-          prodUrl: this.prodUrl,
+          prodUrl: this.prodUrl,x
         });
         this.prodName = " ";
         this.description = " ";

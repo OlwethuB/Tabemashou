@@ -71,26 +71,8 @@
 
         mounted() {
             this.$store.dispatch("setBooking", this.id );
+            this.$store.dispatch("editBooking", this.id );
         },
 
-        methods: {
-                // Update product
-            async updateReservation() {
-                try {
-                    await axios.patch( `http://localhost:5000/booking/${this.payload.bookingID}`,
-                    this.payload
-                    );
-                    this.name = "";
-                    this.email = "";
-                    this.phone = "";
-                    this.pepSize = "";
-                    this.date = "";
-                    this.time = "";
-                    this.$router.push("/adminRes");
-                } catch (err) {
-                    console.log(err);
-                }
-            },
-        },
     };
 </script>

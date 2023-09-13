@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
-import Swal from 'sweetalert2/src/sweetalert2.js'
+import Swal from "sweetalert2/src/sweetalert2.js";
 
 const Api = "http://localhost:5000/";
 
@@ -10,17 +10,19 @@ export default createStore({
     register: null,
     users: null,
     user: null,
+    //
     products: null,
     breakfast: null,
     tisers: null,
     main: null,
     dessert: null,
     product: null,
+    //
     reservations: null,
     reservation: null,
     last: null,
   },
-  getters: {},  
+  getters: {},
   mutations: {
     setLogin(state, login) {
       state.login = login;
@@ -55,6 +57,15 @@ export default createStore({
     setBookings(state, reservations) {
       state.reservations = reservations;
     },
+    addBooking(state, reservation) {
+      state.reservation = reservation;
+    },
+    editBooking(state, reservation) {
+      state.reservation = reservation;
+    },
+    delBooking(state, reservation) {
+      state.reservation = reservation;
+    },
     setBooking(state, reservation) {
       state.reservation = reservation;
     },
@@ -63,33 +74,34 @@ export default createStore({
     },
   },
   actions: {
-      // Login and Register
-      async register() {
-        // Send a request to the Node.js API to register the user
-        axios
-          .post("http://localhost:5000/register", {
-            firstName: this.firstName,
-            lastName: this.lastName,
-            userAge: this.userAge,
-            emailAdd: this.emailAdd,
-            userPass: this.userPass,
-            userProfile: this.userProfile,
-          })
-          .then((response) => {
-            // Handle successful registration
-            alert("User Registered In!");
-            Swal.fire("Registed", "Welcome new User!", "success");
-            console.log(response.data);
-            // Redirect the user to the login page
-            window.location.href = "/login";
-          })
-          .catch((error) => {
-            // Handle registration error
-            alert("Error registering, the email is probably already used. try again in a minute (check console!)");
-            console.error(error);
-          });
-      },      
-
+    // Login and Register
+    async register() {
+      // Send a request to the Node.js API to register the user
+      axios
+        .post("http://localhost:5000/register", {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          userAge: this.userAge,
+          emailAdd: this.emailAdd,
+          userPass: this.userPass,
+          userProfile: this.userProfile,
+        })
+        .then((response) => {
+          // Handle successful registration
+          alert("User Registered In!");
+          Swal.fire("Registed", "Welcome new User!", "success");
+          console.log(response.data);
+          // Redirect the user to the login page
+          window.location.href = "/login";
+        })
+        .catch((error) => {
+          // Handle registration error
+          alert(
+            "Error registering, the email is probably already used. try again in a minute (check console!)"
+          );
+          console.error(error);
+        });
+    },
 
     // Users section
     async fetchUsers(context) {
@@ -115,9 +127,9 @@ export default createStore({
     // },
     fetchUser: async (context, id) => {
       fetch(`${Api}user/+ ${id}`)
-      .then((res) => res.json())
-      .then((res) => console.log(res.results.userID))
-      .then((user) => context.commit("setUser", user))
+        .then((res) => res.json())
+        .then((res) => console.log(res.results.userID))
+        .then((user) => context.commit("setUser", user));
     },
 
     // Products/dishes/menu section
@@ -207,6 +219,24 @@ export default createStore({
         }
       } catch (error) {
         console.error(error);
+      }
+    },
+    // Update product
+    async updateReservation() {
+      try {
+        await axios.patch(
+          `http://localhost:5000/booking/${this.payload.bookingID}`,
+          this.payload
+        );
+        this.name = "";
+        this.email = "";
+        this.phone = "";
+        this.pepSize = "";
+        this.date = "";
+        this.time = "";
+        this.$router.push("/adminRes");
+      } catch (err) {
+        console.log(err);
       }
     },
     async fetchLastBooking(context) {
