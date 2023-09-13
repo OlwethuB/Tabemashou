@@ -1,16 +1,18 @@
-import { createStore } from "vuex";
-import axios from "axios";
-import Swal from "sweetalert2/src/sweetalert2.js";
+import { createStore } from 'vuex'
+import axios from 'axios'
+import sweet from 'sweetalert'
+import router from '@/router'
+import { useCookies } from 'vue3-cookies'
+import authUser from '@/services/AuthenticateUser'
+const Api = "http://localhost:5000/"
+const {cookies} = useCookies()
 
-const Api = "http://localhost:5000/";
 
 export default createStore({
   state: {
-    login: null,
-    register: null,
     users: null,
-    user: null,
-    //
+    user: null,    
+    // menu
     products: null,
     breakfast: null,
     tisers: null,
@@ -24,20 +26,17 @@ export default createStore({
   },
   getters: {},
   mutations: {
-    setLogin(state, login) {
-      state.login = login;
-    },
-    setRegister(state, register) {
-      state.register = register;
-    },
     setUsers(state, users) {
-      state.users = users;
+      state.users = users
     },
     setUser(state, user) {
-      state.user = user;
+      state.user = user 
     },
     setProducts(state, products) {
       state.products = products;
+    },
+    setProduct(state, product) {
+      state.product = product;
     },
     setBreakfast(state, breakfast) {
       state.breakfast = breakfast;
@@ -50,9 +49,6 @@ export default createStore({
     },
     setDesserts(state, dessert) {
       state.dessert = dessert;
-    },
-    setProduct(state, product) {
-      state.product = product;
     },
     setBookings(state, reservations) {
       state.reservations = reservations;
@@ -75,61 +71,143 @@ export default createStore({
   },
   actions: {
     // Login and Register
-    async register() {
-      // Send a request to the Node.js API to register the user
-      axios
-        .post("http://localhost:5000/register", {
-          firstName: this.firstName,
-          lastName: this.lastName,
-          userAge: this.userAge,
-          emailAdd: this.emailAdd,
-          userPass: this.userPass,
-          userProfile: this.userProfile,
+    async login(context, payload) {
+      try{
+        const {msg, token, result} = (await axios.post(`${Api}login`, payload)).data
+        if(result) {
+          context.commit('setUser', {result, msg})
+          cookies.set('LegitUser', {token, msg, result})
+          authUser.applyToken(token)
+          sweet({
+            title: msg,
+            text: `Welcome back ${result?.firstName} 
+            ${result?.lastName}`,
+            icon: "success",
+            timer: 2000
+          })
+          router.push({name: 'home'})
+        }else {
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 2000
+          })
+        }
+      }catch(e) {
+        sweet({
+          title: "Error",
+          text: "Please try again late.",
+          icon: "error",
+          timer: 2000
         })
-        .then((response) => {
-          // Handle successful registration
-          alert("User Registered In!");
-          Swal.fire("Registed", "Welcome new User!", "success");
-          console.log(response.data);
-          // Redirect the user to the login page
-          window.location.href = "/login";
+      }
+    },
+    async register(context, payload) {
+      try{
+        const {msg} = (await axios.post(`${Api}register`, payload)).data
+        if(msg) {
+          sweet({
+            title: "Registration",
+            text: msg,
+            icon: "success",
+            timer: 2000
+          })
+          context.dispatch('fetchUsers')
+          router.push({name: 'login'})   
+        }else {
+          sweet({
+            title: "Error",
+            text: "Make sure you are using the correct path or route",
+            icon: "error",
+            timer: 2000
+          })
+        }
+      }catch(e) {
+        sweet({
+          title: "Error",
+          text: "Please contact the admin",
+          icon: "error",
+          timer: 2000
         })
-        .catch((error) => {
-          // Handle registration error
-          alert(
-            "Error registering, the email is probably already used. try again in a minute (check console!)"
-          );
-          console.error(error);
-        });
+      }
     },
 
     // Users section
     async fetchUsers(context) {
-      try {
-        const { data } = await axios.get(`${Api}users`);
-        if (data.results) {
-          context.commit("setUsers", data.results);
-        }
-      } catch (error) {
-        console.error("Error fetching Users:", error);
+      try{
+        const {results} = (await axios.get(`${Api}user`)).data
+        context.commit("setUsers", results)
+      }catch(e) {
+        sweet({
+          title: "Error",
+          text: "An error occurred",
+          icon: "error",
+          timer: 2000
+        })
       }
     },
-    // async fetchUser(userID) {
-    //   try {
-    //     const { data } = await axios.get(`${Api}user/1`);
-    //     console.log(data.results.userID)
-    //     if (data.result) {
-    //       userID.commit("setUser", data.result);
-    //     }
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
+    async fetchUser(id) {
+      try {
+        const { data } = await axios.get(`${Api}user/${id}`)
+        setUser(data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    // fetchUser: async (context, id) => {
+    //   console.log(id);
+    //   fetch(`${Api}user/${id}`)
+    //     .then((res) => res.json())
+    //     .then((res) => console.log(res.results.userID))
+    //     console.log(results.userID)
+    //     .then((user) => context.commit("setUser", user));
     // },
-    fetchUser: async (context, id) => {
-      fetch(`${Api}user/+ ${id}`)
-        .then((res) => res.json())
-        .then((res) => console.log(res.results.userID))
-        .then((user) => context.commit("setUser", user));
+    // Update product
+    async updateUser(context, payload) {
+      try{
+        const {msg} = (await axios.patch(`${Api}user/${payload.userID}`, payload)).data
+        if(msg) {
+          context.dispatch('fetchUsers')
+          sweet({
+            title: "Update",
+            text: msg,
+            icon: "success",
+            timer: 2000
+          })
+        }
+        this.$router.push("/adminUsers")
+      }catch(e) {
+        sweet({
+          title: "Error",
+          text: "An error occurred",
+          icon: "error",
+          timer: 2000
+        })
+      }
+    },
+
+    // Delete product
+    async deleteUser(context, id) {
+      try{
+        const {msg} = (await axios.delete(`${Api}user/${id}`)).data
+        if(msg) {
+          sweet({
+            title: "Remove a user",
+            text: msg,
+            icon: "success",
+            timer: 2000
+          })
+          context.dispatch('fetchUsers')
+        }
+      }catch(e) {
+        sweet({
+          title: "Error",
+          text: "An error occurred",
+          icon: "error",
+          timer: 2000
+        })
+      }
     },
 
     // Products/dishes/menu section
@@ -250,6 +328,12 @@ export default createStore({
         console.error("Error fetching This reservation:", error);
       }
     },
+
   },
   modules: {},
+  getters: {
+    user(state) {
+      return state.user
+    }
+  },
 });

@@ -17,31 +17,32 @@
    </router-link>
              </li>
              <li class="nav-item">
-               <router-link id="links" class="nav-link" to="/">About Us</router-link>
+               <router-link id="links" class="nav-link" to="/about">About Us</router-link>
              </li>
              <li class="nav-item">
-               <router-link id="links" class="nav-link" to="/">Menu</router-link>
+               <router-link id="links" class="nav-link" to="/menu">Menu</router-link>
              </li>
              <li class="nav-item">
-               <router-link id="links" class="nav-link" to="/">Contact</router-link>
+               <router-link id="links" class="nav-link" to="/contact">Contact</router-link>
              </li>
              <li class="nav-item">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: red;">Other</a>
                 <ul class="dropdown-menu">
+                    <li><router-link class="dropdown-item" to="/adminMenu">Admin</router-link></li>
                     <li><router-link class="dropdown-item" to="/book">Book now</router-link></li>
-                    <li><router-link class="dropdown-item" to="/">Something else here</router-link></li>
+                    <li><router-link class="dropdown-item" to="/confirm">Something else here</router-link></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><router-link class="dropdown-item disabled" aria-disabled="true" to="/">Order</router-link></li>
+                    <li><router-link class="dropdown-item disabled" aria-disabled="true" to="/singleUser">Profile</router-link></li>
                 </ul>
             </li>
            </ul>
            <!-- Right end -->
            <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register |</a>
+                    <a class="nav-link" href="/register">Register |</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="/login">Login</a>
                 </li>
             </ul>
          </div>

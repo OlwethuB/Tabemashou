@@ -8,13 +8,13 @@
     <div>
         <ul class="nav justify-content-center nav-tabs">
             <li class="nav-item">
-                <router-link to="/" class="nav-link">Users</router-link>
+                <router-link to="/adminUsers" class="nav-link">Users</router-link>
             </li>
             <li class="nav-item">
-                <router-link to="/" class="nav-link active" aria-current="page">Menu</router-link>
+                <router-link to="/adminMenu" class="nav-link active" aria-current="page">Menu</router-link>
             </li>
             <li class="nav-item">
-                <router-link to="/" class="nav-link" >Reservations</router-link>
+                <router-link to="/adminRes" class="nav-link" >Reservations</router-link>
             </li>
             <li class="nav-item">
                 <router-link to="/" class="nav-link disabled" aria-disabled="true">Orders</router-link>

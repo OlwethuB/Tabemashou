@@ -5,13 +5,13 @@
     <div>
         <ul class="nav justify-content-center nav-tabs">
             <li class="nav-item">
-                <router-link to="/" class="nav-link active" aria-current="page">Users</router-link>
+                <router-link to="/adminUsers" class="nav-link active" aria-current="page">Users</router-link>
             </li>
             <li class="nav-item">
-                <router-link to="/" class="nav-link">Menu</router-link>
+                <router-link to="/adminMenu" class="nav-link">Menu</router-link>
             </li>
             <li class="nav-item">
-                <router-link to="/" class="nav-link" >Reservations</router-link>
+                <router-link to="/adminRes" class="nav-link" >Reservations</router-link>
             </li>
             <li class="nav-item">
                 <router-link to="/" class="nav-link disabled" aria-disabled="true">Orders</router-link>
@@ -130,22 +130,17 @@ export default {
     users() {
       return this.$store.state.users;
     },
-  },
-  mounted() {
+},
+mounted() {
     
     this.$store.dispatch("fetchUsers");
-  },
+    this.$store.dispatch("deleteUser", this.id);
+},
 
-  methods: { 
-            // Delete product
-        async  deleteUser(id) {
-            try{
-                await axios.delete(`http://localhost:5000/user/${id}`);
-                this.$store.dispatch("fetchUsers");
-            } catch (err) {
-                console.log(err);
-            }
-        },
+methods: { 
+    deleteUser() {
+        return this.$store.state.user;
+    }
     },
 };
 </script>
@@ -157,8 +152,8 @@ export default {
 }
 
 .Up{
-    width: 10%;
-    height: 10%
+    width: 30%;
+    height: 30%
 }
 
 </style>

@@ -73,27 +73,7 @@
 
         mounted() {
             this.$store.dispatch("fetchUser", this.id );
-        },
-
-        methods: {
-                // Update product
-            async updateUser() {
-                try {
-                    await axios.patch( `http://localhost:5000/user/${this.payload.userID}`,
-                    this.payload
-                    );
-                    this.firstName = "";
-                    this.lastName = "";
-                    this.userAge = "";
-                    this.userRole = "";
-                    this.emailAdd = "";
-                    this.userPass = "";
-                    this.userProfile = "";
-                    this.$router.push("/adminUsers");
-                } catch (err) {
-                    console.log(err);
-                }
-            },
+            this.$store.dispatch("updateUser", this.id );
         },
     };
 </script>
