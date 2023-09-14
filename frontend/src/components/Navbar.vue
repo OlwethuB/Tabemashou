@@ -1,10 +1,10 @@
 <template>
+  <div id="PromoHead" class="promo">
+      <router-link class="navbar-brand" to="/">
+          <h4>Book now | Table specials</h4>
+     </router-link>
+  </div>
     <header  class="sticky-top">
-        <div id="PromoHead" class="promo">
-            <router-link class="navbar-brand" to="/">
-                <h4>Book now | Table specials</h4>
-           </router-link>
-        </div>
        <nav id="header" class="navbar">
          <div class="container">
            <router-link class="navbar-brand" to="/">
@@ -26,22 +26,22 @@
                <router-link id="links" class="nav-link" to="/contact">Contact</router-link>
              </li>
              <li class="nav-item">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: red;">Other</a>
-                <ul class="dropdown-menu">
-                    <li><router-link class="dropdown-item" to="/adminMenu">Admin</router-link></li>
-                    <li><router-link class="dropdown-item" to="/book">Book now</router-link></li>
-                    <li><router-link class="dropdown-item" to="/confirm">Something else here</router-link></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><router-link class="dropdown-item disabled" aria-disabled="true" to="/singleUser">Profile</router-link></li>
-                </ul>
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+              <ul class="dropdown-menu">
+                  <li><router-link class="dropdown-item" to="/adminMenu">Admin</router-link></li>
+                  <li><router-link class="dropdown-item" to="/book">Book now</router-link></li>
+                  <li><router-link class="dropdown-item" to="/confirm">Something else here</router-link></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><router-link class="dropdown-item disabled" aria-disabled="true" to="/singleUser">Profile</router-link></li>
+              </ul>
             </li>
            </ul>
            <!-- Right end -->
-           <ul class="nav justify-content-end">
-                <li class="nav-item">
+           <ul class="nav justify-content-end log">
+                <li class="nav-item log">
                     <a class="nav-link" href="/register">Register |</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item log">
                     <a class="nav-link" href="/login">Login</a>
                 </li>
             </ul>
@@ -61,13 +61,15 @@
    .promo {
     text-align: center;
     background-color: #00284E;
+    color: #adb5bd;
+    padding: 2px;
    }
 
    /* Navigation */
    header {
      width: 100%;
    background-color: #0281C5;
-   opacity: 0.8;
+   opacity: 0.5;
    }
    
    @media (max-width: 768px) {
@@ -76,6 +78,9 @@
      margin-bottom: 100px;
    }}
 
+   .log {
+    color: #e9ecef ;
+   }
    
    .logo{
      border-radius: 50%;
@@ -85,37 +90,37 @@
    
    }
    
-   #links {
+   .nav-link, #links {
      color: #fff;
      font-size: 20px; 
-     margin: 20px;
+     margin: 2px;
    }
    
-   #links:hover{
+   .nav-link:hover, #links:hover {
      border-radius: 4px;
-   color: #2c75fc;
-   margin: 15px;
+   color: #00284E;
+   margin: 3px;
    
    }
    
    @media (max-width: 862px) {
-   #links {
+    .nav-link, #links {
    font-size: 20px;
-   margin: 5px;
+   margin: 2px;
    }
-   #links:hover {
+   .nav-link:hover, #links:hover{
      border-radius: 2px;
      border: 2px solid #123f92;
-   margin: 5px;
+   margin: 2px;
    }
    }
    
    @media (max-width: 662px) {
-   #links {
+    .nav-link, #links {
    font-size: 12px;
-   margin: 5px;
+   margin: 2px;
    }
-   #links:hover {
+   .nav-link:hover, #links:hover{
      border-radius: 2px;
      border: 2px solid #123f92;
    margin: 2px ;

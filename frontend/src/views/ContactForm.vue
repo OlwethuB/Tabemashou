@@ -58,7 +58,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 d-flex align-items-stretch">
+                                    <!-- <div class="col-md-6 d-flex align-items-stretch">
                                         <div class="info-wrap w-100 p-md-5 p-4 py-5 img">
                                             <h3 class="fo">Contact information</h3>
                                             <p class="mb-4 fo">If at all you would like to work with me, Here is my contact info
@@ -75,7 +75,6 @@
                                                 </div>
                                             </div>
                                             <div class="dbox w-100 d-flex">
-                                                <!-- < class="text pl-3"> -->
                                                     <p class="text-wrap"><span class="fo">Email:</span><a href="https://media.makeameme.org/created/hello-rtr56j.jpg" target="_blank" style="text-decoration: none; color: #00ceb6;">
                                                             Future_corpse@gmail.com</a>
                                                     </p>
@@ -86,7 +85,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -95,3 +94,70 @@
             </main>  
     </div>
 </template>
+
+<style>
+    /* Dark ver */
+#darkver {
+    background-color: #fff;
+}
+/* form button */
+input {
+  white-space: normal;
+  padding: 15px 25px;
+  border: solid;
+  border-radius: 15px;
+  color: black;
+  z-index: 1;
+  background: #0281C5;
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+input::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  color: #fff;
+  z-index: -1;
+  transition: all 250ms;
+}
+
+input:hover {
+    color: #0281C5;
+  background-color: #212121;
+}
+
+input:hover::before {
+  width: 100%;
+}
+/* Form */
+/* #sec{
+    background-color: #eb886f;
+    border:10px solid #ef9d88;
+    min-height: 50vh;
+    width: 70vh;
+    margin: auto;
+    display: block;
+    align-items: center;
+    font-size: 30px;
+   } */
+/* end of form */
+
+/* email text */
+.text-wrap a {
+  overflow-wrap: anywhere;
+}
+
+.fo{
+    color: #fff;
+}
+
+</style>

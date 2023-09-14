@@ -21,21 +21,21 @@
 
     <!-- Current Table -->
     <section>
-        <div>
+        <div  style="overflow-x:auto;">
             <!-- <router-link :to="{name: 'Create'}" class="button is-success mt-5"> Add New </router-link> -->
 
             <!-- Start of table -->
             <table class="table is-striped is-bordered mt-2 is-fullwidth">
                 <thead>
                     <tr>
-                        <th> Order Date </th>
-                        <th> Reservation Name </th>
-                        <th> Email </th>
-                        <th> Phone </th>
-                        <th> Party size </th>
-                        <th> Date </th>
-                        <th> Time </th>
-                        <th class="has-text-centered"> Actions </th>
+                        <th scope="col"> Order Date </th>
+                        <th scope="col"> Reservation Name </th>
+                        <th scope="col"> Email </th>
+                        <th scope="col"> Phone </th>
+                        <th scope="col"> Party size </th>
+                        <th scope="col"> Date </th>
+                        <th scope="col"> Time </th>
+                        <th scope="col" class="has-text-centered"> Actions </th>
                     </tr>
                 </thead>
                 <tbody>

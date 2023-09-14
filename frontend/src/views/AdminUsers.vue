@@ -21,9 +21,7 @@
 
     <!-- Current Table -->
     <section>
-        <div>
-            <!-- <router-link :to="{name: 'Create'}" class="button is-success mt-5"> Add New </router-link> -->
-
+        <div style="overflow-x:auto;">
             <!-- Start of table -->
             <table class="table is-striped is-bordered mt-2 is-fullwidth">
                 <thead>
@@ -134,13 +132,19 @@ export default {
 mounted() {
     
     this.$store.dispatch("fetchUsers");
-    this.$store.dispatch("deleteUser", this.id);
+    // this.$store.dispatch("deleteUser", this.id);
 },
 
 methods: { 
-    deleteUser() {
-        return this.$store.state.user;
-    }
+            // Delete product
+        async  deleteUser(id) {
+            try{
+                await axios.delete(`http://localhost:5000/user/${id}`);
+                this.$store.dispatch("fetchUsers");
+            } catch (err) {
+                console.log(err);
+            }
+        },
     },
 };
 </script>

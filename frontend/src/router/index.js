@@ -86,9 +86,26 @@ const routes = [
   },
 ];
 
+
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  guards: {
+    beforeRouteLeave: authenticateUser,
+  },
 });
 
+function authenticateUser(to, from, next) {
+  if (to.name !== 'login') {
+    return next();
+  }
+
+  // Check if the user is authenticated
+  if (localStorage.getItem('token')) {
+    next();
+  } else {
+    // Redirect to the login page
+    router.push('/login');
+  }
+}
 export default router;
