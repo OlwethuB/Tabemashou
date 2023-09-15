@@ -84,7 +84,7 @@ export default {
   methods: {
     async createBooking() {
       try {
-        await axios.post("http://localhost:5000/book", {
+        await axios.post("https://tabemashou.onrender.com/book", {
             name: this.name,
             email: this.email,
             phone: this.phone,

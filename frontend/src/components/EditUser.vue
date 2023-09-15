@@ -3,18 +3,8 @@
     <div class="field">
       <label class="label"> User Name </label>
       <div class="control">
-        <input
-          class="input"
-          type="text"
-          placeholder="Name"
-          v-model="payload.firstName"
-        />
-        <input
-          class="input"
-          type="text"
-          placeholder="Surname"
-          v-model="payload.lastName"
-        />
+        <input class="input" type="text" placeholder="Name" v-model="payload.firstName"/>
+        <input class="input" type="text" placeholder="Surname" v-model="payload.lastName"/>
       </div>
     </div>
     <div class="field">

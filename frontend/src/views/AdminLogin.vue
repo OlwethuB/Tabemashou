@@ -1,4 +1,4 @@
-<template>
+    <template>
   <section class="in">
     <br />
     <h1 >Tabemashou</h1>
@@ -123,3 +123,4 @@ input{
   color: white;
 }
 </style>
+

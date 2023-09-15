@@ -9,7 +9,7 @@
   <!-- Hero section -->
   <section class="hero" id="Hero">
     <div>
-      <h1 class="title animate__animated animate__pulse animate__slower animate__delay-3s">Tabemashou</h1>
+      <h1 class="title animate__animated animate__pulse animate__slow animate__delay-1 s">Tabemashou</h1>
       <h4 class=" animate__animated animate__pulse animate__slow animate_delay-3s">Let’s eat | 食べましょう</h4>
       <p>View more</p>
       <!-- Arrow "gif"/animation going down -->
@@ -26,27 +26,14 @@
     <nav id="header" class="navbar">
       <div class="container">
         <router-link class="navbar-brand" to="/">
-          <img
-            src="https://i.postimg.cc/Z5JfwqLW/logo.jpg"
-            alt="logo"
-            class="logo"
-            loading="eager"
-          />
+          <img src="https://i.postimg.cc/4NqxPYHm/Capstone-Logo.png" alt="logo" class="logo" loading="eager"/>
         </router-link>
         <!-- center stuff -->
         <ul class="nav nav-underline m-auto justify-content-center">
           <li class="nav-item">
-            <router-link
-              to="/"
-              id="links"
-              class="nav-link active"
-              aria-current="page"
-              ><lord-icon
-                src="https://cdn.lordicon.com/osuxyevn.json"
-                trigger="click"
-                colors="primary:#fff"
-                style="width: 25px; height: 25px"
-              ></lord-icon>
+            <router-link to="/" id="links" class="nav-link active" aria-current="page" >
+              <lord-icon src="https://cdn.lordicon.com/osuxyevn.json" trigger="click" colors="primary:#fff" style="width: 25px; height: 25px">
+              </lord-icon>
             </router-link>
           </li>
           <li class="nav-item">
@@ -67,14 +54,15 @@
           <li class="nav-item">
             <a
               class="nav-link dropdown-toggle"
+              id="links"
               data-bs-toggle="dropdown"
               aria-expanded="false"
               >Other</a
             >
             <ul class="dropdown-menu">
               <li>
-                <router-link class="dropdown-item" to="/adminMenu"
-                  >Admin</router-link
+                <router-link class="dropdown-item" to="/profile"
+                  >Profile</router-link
                 >
               </li>
               <li>
@@ -84,34 +72,38 @@
               </li>
               <li>
                 <router-link class="dropdown-item" to="/confirm"
-                  >Something else here</router-link
+                  >Confirmation page</router-link
                 >
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link
-                  class="dropdown-item disabled"
-                  aria-disabled="true"
-                  to="/singleUser"
-                  >Profile</router-link
+                <router-link class="dropdown-item" to="/adminUsers"
+                  >Admin</router-link
                 >
               </li>
             </ul>
           </li>
         </ul>
         <!-- Right end -->
-        <ul class="nav justify-content-end log">
-          <li class="nav-item log">
-            <a class="nav-link" href="/register">Register |</a>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="links nav-link" id="links" href="/register">Register |</a>
           </li>
-          <li class="nav-item log">
-            <a class="nav-link" href="/login">Login</a>
+          <li class="nav-item">
+            <a class="nav-link" id="links" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout" id="links"
+              ><lord-icon src="https://cdn.lordicon.com/moscwhoj.json" trigger="click" colors="primary:#000000,secondary:#1663c7" style="width: 35px; height: 35px"
+              >
+              </lord-icon
+            ></a>
           </li>
         </ul>
       </div>
     </nav>
   </header>
-  <!-- <Dashboard /> -->
+  <!-- Dashboard -->
 
   <!-- What do you want to eat? -->
   <section>
@@ -133,8 +125,10 @@
         <img class="cat-img" src="https://i.postimg.cc/hj50rhy9/Dessert-Icon.png" alt="Dessert" />
         <h3>Desserts</h3>
       </div>
-      <a href="/menu" class="btn btn-secondary">Check menu</a>
     </div>
+    <br>
+    <a href="/menu" class="btn btn-secondary btn-sm" style="width: 20%;">Check menu</a>
+    <br>
   </section>
 
   <!-- About us -->
@@ -190,18 +184,15 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 import Navigation from "@/components/Navbar.vue";
 import footerComp from "@/components/Footer.vue";
-import Dashboard from "@/components/Dashboard.vue";
 
 export default {
   name: "HomeView",
   Navigation,
   footerComp,
-  Dashboard,
   components: {
     HelloWorld,
     Navigation,
     footerComp,
-    Dashboard,
   },
 };
 </script>
@@ -221,7 +212,7 @@ export default {
 header {
   width: 100%;
   background-color: #0281c5;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 @media (max-width: 768px) {
@@ -285,19 +276,23 @@ header {
 }
 
       /* Intro section */
-    .intro {
-      background-image: url(https://i.postimg.cc/CLmdXPgw/Bkg-lndscp-1.png);
+    .hero {
+      background-image: url(https://i.postimg.cc/Jhc7RK6k/Screenshot-2023-09-07-092939.png);
       height: 25%;
+      /* min-height: 100vh; */
       text-align: center;
       width: 100%;
-      color: #fff;
+      color: #495057;
+      font-weight: 800;
       padding: 15%;
-      font-family: Rubik;
+      /* font-family: Rubik; */
       overflow: hidden;
       background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
     .title{
-        font-size: 50px;
+        font-size: 80px;
     }
 
   /* Hero Arrow Animation */  
@@ -307,12 +302,12 @@ header {
   position: absolute;
   left: 50%;
   margin-left: -30px;
-  bottom: 20px;
+  bottom: 100px;
 }
 .arrows path {
-  stroke: #2994D1;
+  stroke: #00284E;
   fill: transparent;
-  stroke-width: 1px;  
+  stroke-width: 3px;  
   animation: arrow 2s infinite;
   -webkit-animation: arrow 2s infinite; 
 }
@@ -323,7 +318,7 @@ header {
 80% {opacity:0}
 100% {opacity:0}
 }
-@-webkit-keyframes arrow /*Safari and Chrome*/
+@-webkit-keyframes arrow /*  和  */
 {
 0% {opacity:0}
 40% {opacity:1}
@@ -332,15 +327,15 @@ header {
 }
 .arrows path.a1 {
   animation-delay:-1s;
-  -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+  -webkit-animation-delay:-1s; /*  和  */
 }
 .arrows path.a2 {
   animation-delay:-0.5s;
-  -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+  -webkit-animation-delay:-0.5s; /*  和  */
 }
 .arrows path.a3 { 
   animation-delay:0s;
-  -webkit-animation-delay:0s; /* Safari 和 Chrome */
+  -webkit-animation-delay:0s; /*  和  */
 }
 
 /* What do you want to eat */

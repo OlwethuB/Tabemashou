@@ -66,7 +66,6 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
-                                        <button type="submit" class="btn btn-success">Save</button>
                                     </div>
                                     </div>
                                 </div>
@@ -95,9 +94,7 @@
                         <newReservation />
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
-                        <button type="submit" class="btn btn-success">Save</button>
-                    </div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>                    </div>
                     </div>
                 </div>
             </div>
@@ -145,7 +142,7 @@ export default {
             // Delete product
         async  deleteBooking(id) {
             try{
-                await axios.delete(`http://localhost:5000/booking/${id}`);
+                await axios.delete(`https://tabemashou.onrender.com/booking/${id}`);
                 this.$store.dispatch("fetchReservations");
             } catch (err) {
                 console.log(err);

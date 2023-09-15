@@ -68,7 +68,7 @@ export default {
     register() {
       // Send a request to the Node.js API to register the user
       axios
-        .post("http://localhost:5000/register", {
+        .post("https://tabemashou.onrender.com/register", {
           firstName: this.firstName,
           lastName: this.lastName,
           userAge: this.userAge,

@@ -4,7 +4,7 @@ import sweet from "sweetalert";
 import router from "@/router";
 import { useCookies } from "vue3-cookies";
 import authUser from "@/services/AuthenticateUser";
-const Api = "http://localhost:5000/";
+const Api = "https://tabemashou.onrender.com/";
 const { cookies } = useCookies();
 
 export default createStore({
@@ -149,19 +149,24 @@ export default createStore({
       }
     },
 
+    // async fetchUser(context, userID) {
+    //   try {
+    //     const { result } = await axios.get(`${Api}user/${userID}`).data;
+    //     context.commit("setUser", result);
+    //   } catch (e) {
+    //     sweet({
+    //       title: "Error",
+    //       text: "An error occurred",
+    //       icon: "error",
+    //       timer: 2000,
+    //     });
+    //     console.error("Error getting user:", error);
+    //   }
+    // },
     async fetchUser(context, id) {
-      try {
-        const { result } = await axios.get(`${Api}user/${id}`).data;
-        context.commit("setUser", result);
-      } catch (e) {
-        sweet({
-          title: "Error",
-          text: "An error occurred",
-          icon: "error",
-          timer: 2000,
-        });
-        console.error("Error getting user:", error);
-      }
+      const res = await axios.get(`${apiUrl}user/${id}`);
+      const data = await res.data
+      context.commit("setUser", data)
     },
 
     // Update product

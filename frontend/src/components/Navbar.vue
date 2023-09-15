@@ -8,27 +8,14 @@
     <nav id="header" class="navbar">
       <div class="container">
         <router-link class="navbar-brand" to="/">
-          <img
-            src="https://i.postimg.cc/Z5JfwqLW/logo.jpg"
-            alt="logo"
-            class="logo"
-            loading="eager"
-          />
+          <img src="https://i.postimg.cc/4NqxPYHm/Capstone-Logo.png" alt="logo" class="logo" loading="eager"/>
         </router-link>
         <!-- center stuff -->
         <ul class="nav nav-underline m-auto justify-content-center">
           <li class="nav-item">
-            <router-link
-              to="/"
-              id="links"
-              class="nav-link active"
-              aria-current="page"
-              ><lord-icon
-                src="https://cdn.lordicon.com/osuxyevn.json"
-                trigger="click"
-                colors="primary:#fff"
-                style="width: 25px; height: 25px"
-              ></lord-icon>
+            <router-link to="/" id="links" class="nav-link active" aria-current="page" >
+              <lord-icon src="https://cdn.lordicon.com/osuxyevn.json" trigger="click" colors="primary:#fff" style="width: 25px; height: 25px">
+              </lord-icon>
             </router-link>
           </li>
           <li class="nav-item">
@@ -49,14 +36,15 @@
           <li class="nav-item">
             <a
               class="nav-link dropdown-toggle"
+              id="links"
               data-bs-toggle="dropdown"
               aria-expanded="false"
               >Other</a
             >
             <ul class="dropdown-menu">
               <li>
-                <router-link class="dropdown-item" to="/adminMenu"
-                  >Admin</router-link
+                <router-link class="dropdown-item" to="/profile"
+                  >Profile</router-link
                 >
               </li>
               <li>
@@ -66,16 +54,13 @@
               </li>
               <li>
                 <router-link class="dropdown-item" to="/confirm"
-                  >Something else here</router-link
+                  >Confirmation page</router-link
                 >
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link
-                  class="dropdown-item disabled"
-                  aria-disabled="true"
-                  to="/singleUser"
-                  >Profile</router-link
+                <router-link class="dropdown-item" to="/adminUsers"
+                  >Admin</router-link
                 >
               </li>
             </ul>
@@ -84,10 +69,17 @@
         <!-- Right end -->
         <ul class="nav justify-content-end log">
           <li class="nav-item log">
-            <a class="nav-link" href="/register">Register |</a>
+            <a class="nav-link" id="links" href="/register">Register |</a>
           </li>
           <li class="nav-item log">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" id="links" href="/login">Login</a>
+          </li>
+          <li class="nav-item log">
+            <a class="nav-link" id="links" href="/logout"
+              ><lord-icon src="https://cdn.lordicon.com/moscwhoj.json" trigger="click" colors="primary:#000000,secondary:#1663c7" style="width: 25px; height: 25px"
+              >
+              </lord-icon
+            ></a>
           </li>
         </ul>
       </div>

@@ -3,8 +3,8 @@ import HomeView from "../views/Home.vue";
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/LoginView.vue";
+import Logout from "../components/LogoutV.vue";
 import Register from "../views/RegisterView.vue";
-import Dashboard from "../components/Dashboard.vue";
 import AdminMenu from "../views/AdminMenu.vue";
 import AdminRes from "../views/AdminRes.vue";
 import AdminUsers from "../views/AdminUsers.vue";
@@ -14,15 +14,19 @@ import Confirm from "../views/BookingConf.vue";
 import About from "../views/AboutUs.vue";
 import Contact from "../views/ContactForm.vue";
 import Menu from "../views/MenuView.vue";
-import SingleUser from "../views/SingleUser.vue";
+import Profile from "../views/SingleUser.vue";
 
-// Vue.use(VueRouter);
-
+ 
 const routes = [
   {
     path: "/login",
     name: "Login",
     component: Login,
+  },
+  {
+    path: "/logout",
+    name: "Logout",
+    component: Logout,
   },
   {
     path: "/register",
@@ -50,28 +54,23 @@ const routes = [
     component: Menu,
   },
   {
-    path: "/singleUser",
-    name: "Single User",
-    component: SingleUser
-  },
-  {
-    path: "/dashboard",
-    name: "dashboard",
-    component: Dashboard,
+    path: "/profile",
+    name: "Profile",
+    component: Profile
   },  
   {
     path: "/adminMenu",
-    name: "Menu's Admin",
+    name: "MenuAdmin",
     component: AdminMenu,
   },
   {
     path: "/adminUsers",
-    name: "User's Admin",
+    name: "UserAdmin",
     component: AdminUsers,
   },
   {
     path: "/adminRes",
-    name: "Res's Admin",
+    name: "ResAdmin",
     component: AdminRes,
   },
   {

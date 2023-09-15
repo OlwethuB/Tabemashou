@@ -1,7 +1,8 @@
 <template>
+  <div class="about">
+    <!-- health and stuff picture in corner -->
+    <img class="healthy" src="https://i.postimg.cc/kgcfC1SP/Health-Icon.png" alt="health" />
     <div class="about-text">
-      <!-- health and stuff picture in corner -->
-      <img class="healthy" src="https://i.postimg.cc/kgcfC1SP/Health-Icon.png" alt="health" />
       <h1>About Us</h1>
       <h3>Fine dining. Elevated experience. unforgettable memories.</h3>
       <h3>We bring you the best of the best in fine dining.</h3>
@@ -14,6 +15,7 @@
         Come dine with us and experience the best of fine dining.
       </p>
     </div>
+  </div>
 
     <!-- Meet the crew -->
     <div class="team">
@@ -56,10 +58,25 @@
 </template>
 
 <style>
-.about-text{
+.about{
     background-color: #044B68;
+    color: #fff;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    padding: 15px;
 }
 .healthy {
   position: top right;
+  width: 100px;
+float: right;
+}
+
+.crew{
+
+}
+.crew img {
+  width: 300px;
+  padding: 10px;
 }
 </style>

@@ -90,7 +90,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
-                        <button type="submit" class="btn btn-success">Save</button>
                     </div>
                     </div>
                 </div>
@@ -142,7 +141,7 @@ export default {
             // Delete product
         async  deleteProduct(id) {
             try{
-                await axios.delete(`http://localhost:5000/products/${id}`);
+                await axios.delete(`https://tabemashou.onrender.com/products/${id}`);
                 this.$store.dispatch("fetchProducts");
             } catch (err) {
                 console.log(err);
