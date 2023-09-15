@@ -50,7 +50,6 @@
 
 <script>
 import axios from "axios";
-import Swal from 'sweetalert2/src/sweetalert2.js'
 
 
 export default {
@@ -80,7 +79,6 @@ export default {
         .then((response) => {
           // Handle successful registration
           alert("User Registered In!");
-          Swal.fire("Registed", "Welcome new User!", "success");
           console.log(response.data);
           // Redirect the user to the login page
           window.location.href = "/login";
