@@ -20,35 +20,35 @@
       <h1>Meet the crew</h1>
       <div class="row crewBox">
         <div class="col crew">
-          <img src="" alt="" />
-          <h1>John Doe</h1>
-          <h3>What he do?</h3>
+          <img src="https://i.postimg.cc/Zq6PKn7R/dreads-profile.jpg" alt="" />
+          <h1></h1>
+          <h3>Founder / Owner</h3>
         </div>
         <div class="col crew">
-          <img src="" alt="" />
-          <h1>John Doe</h1>
-          <h3>What he do?</h3>
+          <img src="https://i.postimg.cc/TwGVyxFc/white-man.jpg" alt="" />
+          <h1>Jonathan Brown</h1>
+          <h3>Restaurant manager</h3>
         </div>
         <div class="col crew">
-          <img src="" alt="" />
-          <h1>John Doe</h1>
-          <h3>What he do?</h3>
+          <img src="https://i.postimg.cc/90QyppWR/ponytail-girl.jpg" alt="" />
+          <h1>Gail </h1>
+          <h3>Host / server</h3>
         </div>
         <div class="row crewBox">
           <div class="col crew">
-            <img src="" alt="" />
-            <h1>John Doe</h1>
-            <h3>What he do?</h3>
+            <img src="https://i.postimg.cc/52hqVLmT/long-neck-man.jpg" alt="" />
+            <h1>Luja Herrera</h1>
+            <h3>Head chef</h3>
           </div>
           <div class="col crew">
-            <img src="" alt="" />
-            <h1>John Doe</h1>
-            <h3>What he do?</h3>
+            <img src="https://i.postimg.cc/hjr9TwqR/mid-hair-lady.jpg" alt="" />
+            <h1>Irene Gilbert</h1>
+            <h3>Bartender / Barista</h3>
           </div>
           <div class="col crew">
-            <img src="" alt="" />
-            <h1>John Doe</h1>
-            <h3>What he do?</h3>
+            <img src="https://i.postimg.cc/Z5BF2V66/chin-up-man.jpg" alt="" />
+            <h1>Andile</h1>
+            <h3>Host / server</h3>
           </div>
         </div>
       </div>
@@ -58,5 +58,8 @@
 <style>
 .about-text{
     background-color: #044B68;
+}
+.healthy {
+  position: top right;
 }
 </style>

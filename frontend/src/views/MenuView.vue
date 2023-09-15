@@ -127,6 +127,7 @@ export default {
 .products{
   background-color: #001f2d ;
   width: 100% !important;
+  min-height: 100vh;
 }
 
 .eat {

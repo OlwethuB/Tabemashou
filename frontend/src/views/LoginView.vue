@@ -1,8 +1,8 @@
 <template>
-  <section class="Login">
+  <section class="in">
     <br />
     <h1 >Tabemashou</h1>
-    <form @submit.prevent="login">
+    <form class="loginForm" @submit.prevent="login">
       <h1>Login</h1>
       <br />
       <div>
@@ -15,8 +15,8 @@
         <label for="userPass">userPass:</label>
         <br />
         <input type="password" v-model="userPass" id="userPass" />
-      </div>
-      <br />
+      </div> 
+      <br />  
       <div>
         <button class="login" type="submit">Login</button>
       </div>
@@ -93,12 +93,12 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Quicksand&family=Rubik:wght@500&display=swap');
-section{
+.in{
   background-color: #044B68;
   height: 100%;
   min-height: 100vh;
 }
-form{
+.loginForm{
   justify-content: center;
   margin: 5% 30% 5% 30%;
   padding: 5%;

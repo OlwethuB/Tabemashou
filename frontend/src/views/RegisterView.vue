@@ -2,7 +2,7 @@
   <section class="register">
     <br />
     <h1 class="RH">Tabemashou</h1>
-    <form @submit.prevent="register" class="form">
+    <form @submit.prevent="register" class="foRm">
       <h1 class="RH">Register</h1>
       <br />
       <div>
@@ -101,7 +101,7 @@ export default {
   height: 100%;
   min-height: 100vh;
 }
-.form{
+.foRm{
   justify-content: center;
   margin: 5% 30% 5% 30%;
   padding: 5%;
@@ -121,13 +121,13 @@ export default {
 				 1px -2px 0 #fff,
 				-1px -2px 0 #fff;
       }
-input{
+.foRm input{
   width: 80%;
   border-radius: 15%;
   border: 2px solid #000000;
 }
 @media (max-width: 768px) {
-   .form {
+   .foRm {
     margin: 5%;
   padding: 5%;
    }}
