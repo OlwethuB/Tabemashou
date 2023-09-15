@@ -1,7 +1,8 @@
 <template>
   <!-- Promo -->
-  <!-- Navigation -->
+  <navigation/>
   <div class="products container">
+    <br>
     <h1 class="section-title">Tabemashou</h1>
 
     <!-- Loading "Spinner" -->
@@ -86,15 +87,25 @@
         </div>
       </div>
       <br>
+      <spinner/>
     </section>
     <br>
   </div>
+  <footerComp/>
 </template>
 
 <script>
 import axios from "axios";
+import spinner from "@/components/Spinner.vue"
+import navigation from '@/components/Navbar.vue';
+import footerComp from '@/components/Footer.vue';
 
 export default {
+  components: {
+spinner,
+    navigation,
+    footerComp,
+  },
   data() {
     return{
       isLoading: false,

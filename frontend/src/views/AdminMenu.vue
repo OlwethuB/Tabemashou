@@ -1,7 +1,7 @@
 <template>
+    <!-- Navigation and promo -->
     <navigation/>
     <br>
-    <!-- Navigation and promo -->
     <h1>Admin Dashboard</h1>
     <!-- Admin Navigation -->
     <br>
@@ -16,10 +16,27 @@
             <li class="nav-item">
                 <router-link to="/adminRes" class="nav-link" >Reservations</router-link>
             </li>
-            <li class="nav-item">
-                <router-link to="/" class="nav-link disabled" aria-disabled="true">Orders</router-link>
-            </li>
         </ul>
+    </div>
+
+        <div class="controls">
+      <div class="sort-filter">
+        <label for="sortBy">Sort By:</label>
+        <select v-model="sortBy" id="sortBy" class="form-select">
+          <option value="prodName">Name</option>
+          <option value="amount">Price</option>
+          <option value="category">category</option>
+        </select>
+      </div>
+      <div class="search">
+        <label for="searchTerm">Search:</label>
+        <input
+          v-model="searchTerm"
+          id="searchTerm"
+          type="text"
+          class="form-control"
+        />
+      </div>
     </div>
 
     <!-- Current Table -->
@@ -95,7 +112,7 @@
                 </div>
             </div>
             <br>
-
+<spinner/>
 <Footer/>
 
 </template>
@@ -103,6 +120,7 @@
 <script>
 import newProduct from "@/components/AddItem.vue";
 import editProduct from "@/components/EditDish.vue";
+import spinner from "@/components/Spinner.vue";
 import Navigation from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
     // Import axios
@@ -119,20 +137,40 @@ export default {
     Navigation,
     Footer,
     newProduct,
-    editProduct
+    editProduct,
+    spinner
   },  
 
-
   data() {
-    return {
-        editModal: 'productModal'
+      return {
+          editModal: 'productModal',
+      dishes: [],
+      sortBy: "prodName",
+      searchTerm: "",
+      isLoading: false,
     };
   },
   computed: {
-    dishes() {
-      return this.$store.state.products;
+      dishes() {
+        return this.$store.state.products;
+      },
+    filteredProducts() {
+      let filtered = [...this.dishes];
+
+      if (this.searchTerm) {
+        const searchTermLC = this.searchTerm.toLowerCase();
+        filtered = filtered.filter((dish) =>
+          dish.prodName.toLowerCase().includes(searchTermLC)
+        );
+      }
+
+      filtered.sort((a, b) => a[this.sortBy].localeCompare(b[this.sortBy]));
+
+      return filtered;
     },
   },
+
+
   mounted() {
     this.$store.dispatch("fetchProducts");
   },

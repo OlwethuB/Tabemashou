@@ -1,5 +1,7 @@
 <template>
     <!-- Navigation and promo -->
+    <navigation/>
+    <br>
     <h1>Admin Dashboard</h1>
     <!-- Admin Navigation -->
     <div>
@@ -13,12 +15,28 @@
             <li class="nav-item">
                 <router-link to="/adminRes" class="nav-link" >Reservations</router-link>
             </li>
-            <li class="nav-item">
-                <router-link to="/" class="nav-link disabled" aria-disabled="true">Orders</router-link>
-            </li>
         </ul>
     </div>
 
+   <div class="controls">
+      <div class="search">
+        <label for="searchTerm">Search:</label>
+        <input
+          v-model="searchTerm"
+          id="searchTerm"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div class="sort">
+        <label for="sortBy">Sort By:</label>
+        <select v-model="sortBy" id="sortBy" class="form-select">
+          <option value="firstName">First Name</option>
+          <option value="lastName">Last Name</option>
+          <option value="emailAdd">Email</option>
+        </select>
+      </div>
+    </div>
     <!-- Current Table -->
     <section>
         <div style="overflow-x:auto;">
@@ -94,7 +112,7 @@
                 </div>
             </div>
             <br>
-
+<spinner/>
 <Footer/>
 
 </template>
@@ -102,6 +120,7 @@
 <script>
 import newUser from "@/components/AddUser.vue";
 import editUser from "@/components/EditUser.vue";
+import spinner from "@/components/Spinner.vue";
 import Navigation from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
     // Import axios
@@ -111,21 +130,45 @@ import axios from 'axios';
 
 export default {
   components: {
-    Navigation,
+      Navigation,
     Footer,
     newUser,
-    editUser
+    editUser,
+    spinner
   },  
-
-  data() {
-    return {
-        editModal: 'userModal'
+    data() {
+      return {
+          editModal: 'userModal',
+      users: [],
+      searchTerm: "",
+      sortBy: "firstName", // Default sort by first name
+      isLoading: false,
     };
   },
   computed: {
-    users() {
-      return this.$store.state.users;
+      users() {
+        return this.$store.state.users;
+      },
+    sortedUsers() {
+      const sorted = [...this.filteredUsers];
+      sorted.sort((a, b) => a[this.sortBy].localeCompare(b[this.sortBy]));
+      return sorted;
     },
+    filteredUsers() {
+      if (!this.searchTerm) {
+        return this.users;
+      }
+      const searchTermLC = this.searchTerm.toLowerCase();
+      return this.users.filter(
+        (user) =>
+          user.firstName.toLowerCase().includes(searchTermLC) ||
+          user.lastName.toLowerCase().includes(searchTermLC) ||
+          user.emailAdd.toLowerCase().includes(searchTermLC)
+      );
+    },
+  },
+
+  computed: {
 },
 mounted() {
     

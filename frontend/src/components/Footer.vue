@@ -11,25 +11,25 @@
               <h3>•••</h3>
               <ul class="list-unstyled nav-links">
                 <li>
-                  <router-link to="/">Home</router-link>
+                  <router-link to="/home">Home</router-link>
                 </li>
                 <li>
-                  <router-link to="/">About us</router-link>
+                  <router-link to="/about">About us</router-link>
                 </li>
                 <li>
-                  <router-link to="/">Meet our team</router-link>
+                  <router-link to="/about">Meet our team</router-link>
                 </li>
                 <li>
-                  <router-link to="/">Make a reservation</router-link>
+                  <router-link to="/book">Make a reservation</router-link>
                 </li>
                 <li>
-                  <router-link to="/">Menu</router-link>
+                  <router-link to="/menu">Menu</router-link>
                 </li>
                 <li>
-                  <router-link to="/">Contact</router-link>
+                  <router-link to="/contact">Contact</router-link>
                 </li>
                 <li>    
-                  <router-link to="/">Order</router-link>
+                  <router-link to="/adminMenu">Admin</router-link>
                 </li>
               </ul>
             </div>

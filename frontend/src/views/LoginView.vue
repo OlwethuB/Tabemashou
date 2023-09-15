@@ -61,7 +61,7 @@ export default {
           });
           console.log(response.data);
           // Redirect the user to the dashboard
-          window.location.href = "/";
+          window.location.href = "/home";
           //  Navigate to profile
           // this.navigate('/profile')
         })

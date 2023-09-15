@@ -1,5 +1,7 @@
 <template>
     <!-- Navigation and promo -->
+    <navigation/>
+    <br>
     <h1>Admin Dashboard</h1>
     <!-- Admin Navigation --> 
     <div>
@@ -13,10 +15,27 @@
             <li class="nav-item">
                 <router-link to="/adminRes" class="nav-link active" aria-current="page">Reservations</router-link>
             </li>
-            <li class="nav-item">
-                <router-link to="/" class="nav-link disabled" aria-disabled="true">Orders</router-link>
-            </li>
         </ul>
+    </div>
+
+        <div class="controls">
+      <div class="sort-filter">
+        <label for="sortBy">Sort By:</label>
+        <select v-model="sortBy" id="sortBy" class="form-select">
+          <option value="bookingName">Name</option>
+          <option value="pepSize">People</option>
+          <option value="Date">Date</option>
+        </select>
+      </div>
+      <div class="search">
+        <label for="searchTerm">Search:</label>
+        <input
+          v-model="searchTerm"
+          id="searchTerm"
+          type="text"
+          class="form-control"
+        />
+      </div>
     </div>
 
     <!-- Current Table -->
@@ -99,7 +118,7 @@
                 </div>
             </div>
             <br>
-
+<spinner/>
 <Footer/>
 
 </template>
@@ -107,6 +126,7 @@
 <script>
 import newReservation from "@/components/AddRes.vue";
 import editBooking from "@/components/EditRes.vue";
+import spinner from "@/components/Spinner.vue";
 import Navigation from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
     // Import axios
@@ -119,20 +139,39 @@ export default {
     Navigation,
     Footer,
     newReservation,
-    editBooking
+    editBooking,
+    spinner
   },  
-
-
   data() {
-    return {
-        editModal: 'BookingModal'
+      return {
+          editModal: 'BookingModal',
+      bookings: [],
+      sortBy: "bookingName",
+      searchTerm: "",
+      isLoading: false,
     };
   },
   computed: {
-    reservations() {
-      return this.$store.state.reservations;
+      reservations() {
+        return this.$store.state.reservations;
+      },
+    filteredBookings() {
+      let filtered = [...this.bookings];
+
+      if (this.searchTerm) {
+        const searchTermLC = this.searchTerm.toLowerCase();
+        filtered = filtered.filter((booking) =>
+          booking.bookingName.toLowerCase().includes(searchTermLC)
+        );
+      }
+
+      filtered.sort((a, b) => a[this.sortBy].localeCompare(b[this.sortBy]));
+
+      return filtered;
     },
   },
+
+
   mounted() {
     
     this.$store.dispatch("fetchReservations");

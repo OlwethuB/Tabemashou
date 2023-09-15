@@ -31,7 +31,7 @@
         <!-- center stuff -->
         <ul class="nav nav-underline m-auto justify-content-center">
           <li class="nav-item">
-            <router-link to="/" id="links" class="nav-link active" aria-current="page" >
+            <router-link to="/home" id="links" class="nav-link active" aria-current="page" >
               <lord-icon src="https://cdn.lordicon.com/osuxyevn.json" trigger="click" colors="primary:#fff" style="width: 25px; height: 25px">
               </lord-icon>
             </router-link>
@@ -90,7 +90,7 @@
             <a class="links nav-link" id="links" href="/register">Register |</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="links" href="/login">Login</a>
+            <a class="nav-link" id="links" href="/">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout" id="links"
@@ -138,27 +138,14 @@
     <AboutComp/>
   </section>
 
-  <!-- Reservation shit... -->
+  <!-- Reservation eish... -->
   <section>
-    <div class="row">
+    <div class="row eish">
       <!-- Left -->
-      <div class="col">
-        <img class="reserve" src="https://i.postimg.cc/PfWD0LZB/Ride-Icon.png" alt="Ride" />
+      <div class="col resC">
+        <img class="reserve" src="https://i.postimg.cc/PfWD0LZB/Ride-Icon.png" alt="Ride" style="width: 200px; margin: 10px" />
         <h1>Make a reservation</h1>
         <p>Join Us for an unforgettable dining experience.</p>
-      </div>
-      <!-- Right -->
-      <div class="col">
-        <h1>Latest Events</h1>
-        <div>
-          <!-- events link -->
-          <ul>
-            <li>An event</li>
-            <li>An event</li>
-            <li>an event</li>
-            <li>An event</li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
@@ -171,16 +158,16 @@
   </section>
 
   <section>
-    <h2>Follow us on instagram <a href="">@tabemashou</a></h2>
+    <h2>Follow us on instagram <a href="https://www.instagram.com/" target="_blank">@tabemashou</a></h2>
     <div>
       <!-- picture carousel I think... -->
+      <CaraComp/>
       <br>
     </div>
   </section>
 
   <!-- Footer -->
 <footerComp/>
-<br>
  </template>
 
 <script>
@@ -359,5 +346,14 @@ header {
 }
 @media screen and(max-width: 700px) {
   
+}
+
+.eish .col{
+  border: 3px solid #807978;
+background: #ffffff;
+height: 500px;
+}
+eish img {
+  width: 200px;
 }
 </style>

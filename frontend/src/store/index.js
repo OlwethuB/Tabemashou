@@ -6,6 +6,7 @@ import { useCookies } from "vue3-cookies";
 import authUser from "@/services/AuthenticateUser";
 const Api = "https://tabemashou.onrender.com/";
 const { cookies } = useCookies();
+import spinner from "@/components/Spinner.vue"
 
 export default createStore({
   state: {
@@ -165,8 +166,8 @@ export default createStore({
     // },
     async fetchUser(context, id) {
       const res = await axios.get(`${apiUrl}user/${id}`);
-      const data = await res.data
-      context.commit("setUser", data)
+      const data = await res.data;
+      context.commit("setUser", data);
     },
 
     // Update product
@@ -218,110 +219,119 @@ export default createStore({
       }
     },
 
-  // Products/dishes/menu section
-  async fetchProducts(context) {
-    this.isLoading = true;
-    try {
-      const { data } = await axios.get(`${Api}products`);
-      if (data.results) {
-        context.commit("setProducts", data.results);
-        this.isLoading = false;
+    // Products/dishes/menu section
+    async fetchProducts(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}products`);
+        if (data.results) {
+          context.commit("setProducts", data.results);
+          this.isLoading = false;
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
       }
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
-  },
-  async fetchBreakfast(context) {
-    this.isLoading = true;
-    try {
-      const { data } = await axios.get(`${Api}breakfast`);
-      if (data.results) {
-        context.commit("setBreakfast", data.results);
-        this.isLoading = false;
+    },
+    async fetchBreakfast(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}breakfast`);
+        if (data.results) {
+          context.commit("setBreakfast", data.results);
+          this.isLoading = false;
+        }
+      } catch (error) {
+        console.error("Error getting Breakfast:", error);
       }
-    } catch (error) {
-      console.error("Error getting Breakfast:", error);
-    }
-  },
-  async fetchTisers(context) {
-    this.isLoading = true;
-    try {
-      const { data } = await axios.get(`${Api}tisers`);
-      if (data.results) {
-        context.commit("setTisers", data.results);
-        this.isLoading = false;
+    },
+    async fetchTisers(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}tisers`);
+        if (data.results) {
+          context.commit("setTisers", data.results);
+          this.isLoading = false;
+        }
+      } catch (error) {
+        console.error("Error getting Tisers:", error);
       }
-    } catch (error) {
-      console.error("Error getting Tisers:", error);
-    }
-  },
-  async fetchMains(context) {
-    this.isLoading = true;
-    try {
-      const { data } = await axios.get(`${Api}main`);
-      if (data.results) {
-        context.commit("setMains", data.results);
-        this.isLoading = false;
+    },
+    async fetchMains(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}main`);
+        if (data.results) {
+          context.commit("setMains", data.results);
+          this.isLoading = false;
+        }
+      } catch (error) {
+        console.error("Error bieng main:", error);
       }
-    } catch (error) {
-      console.error("Error bieng main:", error);
-    }
-  },
-  async fetchDesserts(context) {
-    this.isLoading = true;
-    try {
-      const { data } = await axios.get(`${Api}dessert`);
-      if (data.results) {
-        context.commit("setDesserts", data.results);
-        this.isLoading = false;
+    },
+    async fetchDesserts(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}dessert`);
+        if (data.results) {
+          context.commit("setDesserts", data.results);
+          this.isLoading = false;
+        }
+      } catch (error) {
+        console.error("Error bieng dessert:", error);
       }
-    } catch (error) {
-      console.error("Error bieng dessert:", error);
-    }
-  },
-  async fetchProduct(productId) {
-    try {
-      const { data } = await axios.get(`${Api}products/:id`);
-      if (data.result) {
-        productId.commit("setProduct", data.result);
+    },
+    async fetchProduct(productId) {
+      try {
+        const { data } = await axios.get(`${Api}products/:id`);
+        if (data.result) {
+          productId.commit("setProduct", data.result);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  },
-  // Reservation sector
-  async fetchReservations(context) {
-    this.isLoading = true;
-    try {
-      const { data } = await axios.get(`${Api}bookings`);
-      if (data.results) {
-        context.commit("setBookings", data.results);
+    },
+    // Reservation sector
+    async fetchReservations(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}bookings`);
+        if (data.results) {
+          context.commit("setBookings", data.results);
+        }
+      } catch (error) {
+        console.error("Error fetching Reservations:", error);
       }
-    } catch (error) {
-      console.error("Error fetching Reservations:", error);
-    }
-  },
-  async fetchReservation(bookingID) {
-    try {
-      const { data } = await axios.get(`${Api}booking/:id`);
-      if (data.result) {
-        bookingID.commit("setProduct", data.result);
+    },
+    async fetchReservation(bookingID) {
+      try {
+        const { data } = await axios.get(`${Api}booking/:id`);
+        if (data.result) {
+          bookingID.commit("setProduct", data.result);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  },
-  async fetchLastBooking(context) {
-    this.isLoading = true;
-    try {
-      const { data } = await axios.get(`${Api}booking`);
-      if (data.result) {
-        context.commit("setLast", data.result);
+    },
+    async fetchLastBooking(context) {
+      this.isLoading = true;
+      try {
+        const { data } = await axios.get(`${Api}booking`);
+        if (data.result) {
+          context.commit("setLast", data.result);
+          this.isLoading = false;
+        }
+      } catch (error) {
+        console.error("Error fetching This reservation:", error);
       }
-    } catch (error) {
-      console.error("Error fetching This reservation:", error);
-    }
+    },
   },
-},
-modules: {},
+  components: {
+    spinner,
+  },
+  data() {
+    return {
+      isLoading: true,
+    };
+  },
+  modules: {},
 }); 

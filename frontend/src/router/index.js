@@ -19,14 +19,14 @@ import Profile from "../views/SingleUser.vue";
  
 const routes = [
   {
-    path: "/login",
+    path: "/",
     name: "Login",
     component: Login,
   },
   {
     path: "/logout",
     name: "Logout",
-    component: Logout,
+    component: Login,
   },
   {
     path: "/register",
@@ -34,7 +34,7 @@ const routes = [
     component: Register,
   },
   {
-    path: "/",
+    path: "/home",
     name: "home",
     component: HomeView,
   },

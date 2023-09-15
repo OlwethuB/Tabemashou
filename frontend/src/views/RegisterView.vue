@@ -81,7 +81,7 @@ export default {
           alert("User Registered In!");
           console.log(response.data);
           // Redirect the user to the login page
-          window.location.href = "/login";
+          window.location.href = "/";
         })
         .catch((error) => {
           // Handle registration error

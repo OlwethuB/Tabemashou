@@ -1,16 +1,17 @@
 <template>
+<main class="BB">
+
   <navigation />
-
+<br>
   <h1>Make a reservation</h1>
-
   <section>
+    <form class="boo" @submit.prevent="createBooking"> 
     <h2>Request a reservation</h2>
     <h4>
       To help us find the best table for you, select the preferred party size,
       date, and time of your reservation.
     </h4>
-
-    <form @submit.prevent="createBooking"> 
+    <br>
       <div class="field">
         <label class="label" for="name"> Your Name </label>
         <div class="control">
@@ -61,15 +62,23 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-create">Book</button>
+      <button type="submit" class="btn btn-create">Reserve now</button>
     </form>
   </section>
+  <footerComp/>
+  </main>
 </template>
 
 <script>
 import axios from "axios";
+    import navigation from "@/components/Navbar.vue";
+    import footerComp from "@/components/Footer.vue";
 
 export default {
+  components: {
+    navigation,
+    footerComp,
+  },
   data() {
     return {
         name: "",
@@ -98,6 +107,7 @@ export default {
         this.pepSize = " ";
         this.date = " ";
         this.time = " ";
+        alert("Booked !👍")
         this.$router.push("/confirm");
       } catch (err) {
         console.log(err);
@@ -106,3 +116,18 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.BB{
+    background-color: #044B68;
+    color: #fff;
+}
+.boo {
+  border: 3px solid #000000;
+  background-color: #fff;
+  width: 80%;
+  padding: 0;
+  margin: 10%;
+  color: #000000;
+}
+</style>

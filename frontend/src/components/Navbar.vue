@@ -13,7 +13,7 @@
         <!-- center stuff -->
         <ul class="nav nav-underline m-auto justify-content-center">
           <li class="nav-item">
-            <router-link to="/" id="links" class="nav-link active" aria-current="page" >
+            <router-link to="/home" id="links" class="nav-link active" aria-current="page" >
               <lord-icon src="https://cdn.lordicon.com/osuxyevn.json" trigger="click" colors="primary:#fff" style="width: 25px; height: 25px">
               </lord-icon>
             </router-link>
@@ -67,14 +67,14 @@
           </li>
         </ul>
         <!-- Right end -->
-        <ul class="nav justify-content-end log">
-          <li class="nav-item log">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
             <a class="nav-link" id="links" href="/register">Register |</a>
           </li>
-          <li class="nav-item log">
-            <a class="nav-link" id="links" href="/login">Login</a>
+          <li class="nav-item">
+            <a class="nav-link" id="links" href="/">Login</a>
           </li>
-          <li class="nav-item log">
+          <li class="nav-item">
             <a class="nav-link" id="links" href="/logout"
               ><lord-icon src="https://cdn.lordicon.com/moscwhoj.json" trigger="click" colors="primary:#000000,secondary:#1663c7" style="width: 25px; height: 25px"
               >
@@ -104,7 +104,7 @@
 header {
   width: 100%;
   background-color: #0281c5;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 @media (max-width: 768px) {

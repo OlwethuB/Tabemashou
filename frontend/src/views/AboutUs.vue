@@ -73,7 +73,6 @@
 float: right;
 }
 .TT{
-  float: left;
   padding: 30px;
 }
 .crew{

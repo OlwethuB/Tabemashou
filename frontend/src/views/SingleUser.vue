@@ -1,22 +1,6 @@
 <template>
-
-
-  <!-- <main class="UProfile">
-    <br />
-    <div v-if="users in users" class="user-details">
-      <br />
-      <img :src="users.userProfile" :alt="users.firstName" />
-      <div>
-        <h3>{{ users.firstName }} {{ users.lastName }}</h3>
-        <h4>By {{ users.userAge }}</h4>
-        <p>{{ users.emailAdd }}</p>
-        <p>Password  {{ users.category }}</p>
-        <p>Role: {{ users.userRole }}</p>
-      </div>
-    </div>
-  </main> -->
     <!-- Navigation and promo -->
-
+<Navigation/>
   <!-- Current Table -->
   <section>
       <div style="overflow-x:auto;">
@@ -201,7 +185,7 @@ methods: {
             timer: 2000,
           });
         }
-        this.$router.push("/adminUsers");
+        this.$router.push("/profile");
       } catch (e) {
         sweet({
           title: "Error",
