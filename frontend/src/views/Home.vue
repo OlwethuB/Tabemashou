@@ -107,8 +107,10 @@
 
   <!-- What do you want to eat? -->
   <section>
+    <br>
     <h1>What do you want to eat?</h1>
     <div class="row">
+      <br>
       <div class="col">
         <img class="cat-img" src="https://i.postimg.cc/P5W2jXJj/Break-Icon.png" alt="Breakfast" />
         <h3>Breakfast</h3>
@@ -133,6 +135,7 @@
 
   <!-- About us -->
   <section>
+    <AboutComp/>
   </section>
 
   <!-- Reservation shit... -->
@@ -164,6 +167,7 @@
   <section>
     <h1>Contact Us</h1>
    <!-- Contact component -->
+   <ContactComp/>
   </section>
 
   <section>
@@ -184,15 +188,21 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 import Navigation from "@/components/Navbar.vue";
 import footerComp from "@/components/Footer.vue";
+import AboutComp from "@/views/AboutUs.vue";
+import ContactComp from "@/views/ContactForm.vue";
 
 export default {
   name: "HomeView",
   Navigation,
   footerComp,
+  AboutComp,
+  ContactComp,
   components: {
     HelloWorld,
     Navigation,
     footerComp,
+    AboutComp,
+    ContactComp,
   },
 };
 </script>
@@ -294,6 +304,11 @@ header {
     .title{
         font-size: 80px;
     }
+  @media (max-width: 750px) {
+    .title{
+        font-size: 50px;
+    }
+}
 
   /* Hero Arrow Animation */  
   .arrows {

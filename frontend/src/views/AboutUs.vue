@@ -18,8 +18,9 @@
   </div>
 
     <!-- Meet the crew -->
-    <div class="team">
-      <h1>Meet the crew</h1>
+    <h1 class="TT">Meet the crew</h1>
+    <div class="team mt-5">
+      <br>
       <div class="row crewBox">
         <div class="col crew">
           <img src="https://i.postimg.cc/Zq6PKn7R/dreads-profile.jpg" alt="" />
@@ -61,19 +62,22 @@
 .about{
     background-color: #044B68;
     color: #fff;
-    width: 80%;
-    margin-left: 10%;
+    width: 100%;
+    height: 35%;    /* margin-left: 10%; */
     margin-top: 5%;
-    padding: 15px;
+    padding: 50px;
 }
 .healthy {
   position: top right;
   width: 100px;
 float: right;
 }
-
+.TT{
+  float: left;
+  padding: 30px;
+}
 .crew{
-
+width: 350px !important;
 }
 .crew img {
   width: 300px;

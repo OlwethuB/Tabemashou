@@ -1,10 +1,9 @@
 <template>
   <section class="in">
     <br />
-    <h1 >Tabemashou</h1>
+    <h1 class="inO">Welcome to Tabemashou</h1>
     <form class="loginForm" @submit.prevent="login">
-      <h1>Login</h1>
-      <br />
+      <h1 class="inO">Login</h1>
       <div>
         <label for="firstName">name:</label>
         <br />
@@ -21,6 +20,10 @@
         <button class="login" type="submit">Login</button>
       </div>
     </form>
+    <p class="not">
+      Don't have an account? <b><a href="/register">Register</a></b>
+    </p>
+    <br>
   </section>
 </template>
 
@@ -77,7 +80,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Quicksand&family=Rubik:wght@500&display=swap');
 .in{
   background-color: #044B68;
-  height: 100%;
+  /* height: 100%; */
   min-height: 100vh;
 }
 .loginForm{
@@ -89,24 +92,29 @@ export default {
   border: 4px hidden #adb5bd;
  background: #7bc2f0;}
 
-h1{
+.inO{
   padding: 2%;
   color: #000000;
   font-family: 'Nunito', sans-serif;
   font-weight: bolder;
-	font-size: 80px;
+	font-size: 50px;
 	text-shadow: -1px 2px 0 #fff,
 				  1px 2px 0 #fff,
 				 1px -2px 0 #fff,
 				-1px -2px 0 #fff;
       }
-input{
+.loginForm input{
   width: 80%;
   border-radius: 15%;
   border: 2px solid #adb5bd;
 }
+.loginForm label{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
 @media (max-width: 768px) {
-   form {
+   .loginForm {
     margin: 5%;
   padding: 5%;
    }}
@@ -115,11 +123,17 @@ input{
     width: 80%;
     border-radius: 10%;
     background-color: #7bc2f0;
+    font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
     color: black;
     border: 2px hidden black;
   }
   .login:hover {
   background-color: #044B68;
   color: white;
+}
+.not {
+  color: #fff;
 }
 </style>

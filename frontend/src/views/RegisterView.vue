@@ -44,6 +44,7 @@
       <button class="log" type="reset">Clear form</button>
       <button class="log" type="submit">Register</button>
     </form>
+    <br>
   </section>
 </template>
 
@@ -110,12 +111,12 @@ export default {
   border: 4px hidden #000000;
  background: #7bc2f0;}
 
-.HR{
+.RH{
   padding: 2%;
   color: #000000;
   font-family: 'Nunito', sans-serif;
   font-weight: bolder;
-	font-size: 80px;
+	font-size: 50px;
 	text-shadow: -1px 2px 0 #fff,
 				  1px 2px 0 #fff,
 				 1px -2px 0 #fff,
@@ -123,8 +124,15 @@ export default {
       }
 .foRm input{
   width: 80%;
-  border-radius: 15%;
+  height: 10px;
+  border-radius: 5%;
   border: 2px solid #000000;
+  background-color: #adb5bd;
+}
+.foRm label{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
 }
 @media (max-width: 768px) {
    .foRm {
@@ -133,8 +141,7 @@ export default {
    }}
 
   .log {
-    width: 50%;
-    border-radius: 10%;
+    width: 40%;
     background-color: #7bc2f0;
     color: black;
     border: 2px hidden black;
