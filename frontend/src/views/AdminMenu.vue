@@ -19,25 +19,6 @@
         </ul>
     </div>
 
-        <div class="controls">
-      <div class="sort-filter">
-        <label for="sortBy">Sort By:</label>
-        <select v-model="sortBy" id="sortBy" class="form-select">
-          <option value="prodName">Name</option>
-          <option value="amount">Price</option>
-          <option value="category">category</option>
-        </select>
-      </div>
-      <div class="search">
-        <label for="searchTerm">Search:</label>
-        <input
-          v-model="searchTerm"
-          id="searchTerm"
-          type="text"
-          class="form-control"
-        />
-      </div>
-    </div>
 
     <!-- Current Table -->
     <section>

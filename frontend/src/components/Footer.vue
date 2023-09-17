@@ -14,7 +14,7 @@
                   <router-link to="/home">Home</router-link>
                 </li>
                 <li>
-                  <router-link to="/about">About us</router-link>
+                  <router-link to="/about"  @click="scrollToSection('#about')">About us</router-link>
                 </li>
                 <li>
                   <router-link to="/about">Meet our team</router-link>
@@ -26,7 +26,7 @@
                   <router-link to="/menu">Menu</router-link>
                 </li>
                 <li>
-                  <router-link to="/contact">Contact</router-link>
+                  <router-link to="/contact"  @click="scrollToSection('#contact')">Contact</router-link>
                 </li>
                 <li>    
                   <router-link to="/adminMenu">Admin</router-link>
@@ -150,7 +150,15 @@ export default {
             location:"Find us here",
             email:"Tabemashou@gamil.com",      
         }
-    }
+    },
+      methods: {
+    scrollToSection(section) {
+      const el = document.querySelector(section);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+  },
 }
 </script>
 

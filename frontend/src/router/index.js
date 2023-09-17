@@ -41,12 +41,14 @@ const routes = [
   {
     path: "/about",
     name: "about",
-    component: About
+    component: About,
+    meta: { section: "about" },
   },
   {
     path: "/contact",
     name: "contact",
     component: Contact,
+    meta: { section: "contact" },
   },
   {
     path: "/menu",
@@ -56,8 +58,8 @@ const routes = [
   {
     path: "/profile",
     name: "Profile",
-    component: Profile
-  },  
+    component: Profile,
+  },
   {
     path: "/adminMenu",
     name: "MenuAdmin",

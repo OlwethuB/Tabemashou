@@ -20,23 +20,10 @@
 
    <div class="controls">
       <div class="search">
-        <label for="searchTerm">Search:</label>
-        <input
-          v-model="searchTerm"
-          id="searchTerm"
-          type="text"
-          class="form-control"
-        />
+        <label>Search : </label>
+        <input type="text" v-model="search" placeholder="Search..." />
       </div>
-      <div class="sort">
-        <label for="sortBy">Sort By:</label>
-        <select v-model="sortBy" id="sortBy" class="form-select">
-          <option value="firstName">First Name</option>
-          <option value="lastName">Last Name</option>
-          <option value="emailAdd">Email</option>
-        </select>
-      </div>
-    </div>
+   </div>
     <!-- Current Table -->
     <section>
         <div style="overflow-x:auto;">
@@ -140,32 +127,17 @@ export default {
       return {
           editModal: 'userModal',
       users: [],
-      searchTerm: "",
+      search: "",
       sortBy: "firstName", // Default sort by first name
       isLoading: false,
     };
   },
   computed: {
       users() {
-        return this.$store.state.users;
+        return this.$store.state.users?.filter((user) => {
+            return user.name.toLowerCase().indexOf(this.search.toLowerCase()) != -1 
+        });
       },
-    sortedUsers() {
-      const sorted = [...this.filteredUsers];
-      sorted.sort((a, b) => a[this.sortBy].localeCompare(b[this.sortBy]));
-      return sorted;
-    },
-    filteredUsers() {
-      if (!this.searchTerm) {
-        return this.users;
-      }
-      const searchTermLC = this.searchTerm.toLowerCase();
-      return this.users.filter(
-        (user) =>
-          user.firstName.toLowerCase().includes(searchTermLC) ||
-          user.lastName.toLowerCase().includes(searchTermLC) ||
-          user.emailAdd.toLowerCase().includes(searchTermLC)
-      );
-    },
   },
 
   computed: {

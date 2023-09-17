@@ -19,7 +19,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link id="links" class="nav-link" to="/about"
+            <router-link id="links" class="nav-link" to="/about"  @click="scrollToSection('#about')"
               >About Us</router-link
             >
           </li>
@@ -29,7 +29,7 @@
             >
           </li>
           <li class="nav-item">
-            <router-link id="links" class="nav-link" to="/contact"
+            <router-link id="links" class="nav-link" to="/contact"  @click="scrollToSection('#contact')"
               >Contact</router-link
             >
           </li>
@@ -59,7 +59,7 @@
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link class="dropdown-item" to="/adminUsers"
+                <router-link class="dropdown-item" to="/adminMenu"
                   >Admin</router-link
                 >
               </li>
@@ -87,7 +87,18 @@
   </header>
 </template>
 
-<script></script>
+<script>
+export default {
+  methods: {
+    scrollToSection(section) {
+      const el = document.querySelector(section);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+  },
+};
+</script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400&family=Roboto&family=Rubik&display=swap");

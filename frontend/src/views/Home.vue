@@ -37,7 +37,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link id="links" class="nav-link" to="/about"
+            <router-link id="links" class="nav-link" to="/about"  @click="scrollToSection('#about')"
               >About Us</router-link
             >
           </li>
@@ -47,7 +47,7 @@
             >
           </li>
           <li class="nav-item">
-            <router-link id="links" class="nav-link" to="/contact"
+            <router-link id="links" class="nav-link" to="/contact"  @click="scrollToSection('#contact')"
               >Contact</router-link
             >
           </li>
@@ -77,7 +77,7 @@
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link class="dropdown-item" to="/adminUsers"
+                <router-link class="dropdown-item" to="/adminMenu"
                   >Admin</router-link
                 >
               </li>
@@ -102,6 +102,8 @@
         </ul>
       </div>
     </nav>
+      <router-link to="#about" class="hidden" />
+      <router-link to="#contact" class="hidden" />
   </header>
   <!-- Dashboard -->
 
@@ -134,7 +136,7 @@
   </section>
 
   <!-- About us -->
-  <section>
+  <section id="about">
     <AboutComp/>
   </section>
 
@@ -151,7 +153,7 @@
   </section>
 
   <!-- Contact info -->
-  <section>
+  <section id="contact">
     <h1>Contact Us</h1>
    <!-- Contact component -->
    <ContactComp/>
@@ -161,7 +163,7 @@
     <h2>Follow us on instagram <a href="https://www.instagram.com/" target="_blank">@tabemashou</a></h2>
     <div>
       <!-- picture carousel I think... -->
-      <CaraComp/>
+      <!-- <CaraComp/> -->
       <br>
     </div>
   </section>
@@ -190,6 +192,14 @@ export default {
     footerComp,
     AboutComp,
     ContactComp,
+  },
+    methods: {
+    scrollToSection(section) {
+      const el = document.querySelector(section);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
   },
 };
 </script>

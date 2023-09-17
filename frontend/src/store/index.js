@@ -23,6 +23,7 @@ export default createStore({
     reservations: null,
     reservation: null,
     last: null,
+    asc: true,
   },
   getters: {},
   mutations: {
@@ -67,6 +68,15 @@ export default createStore({
     },
     setLast(state, last) {
       state.last = last;
+    },
+    sortBookingByPeople: (state) => {
+      state.reservations.sort((a, b) => {
+        return a.pepSize - b.pepSize;
+      });
+      if (!state.asc) {
+        state.reservations.reverse();
+      }
+      state.asc = !state.asc;
     },
   },
   actions: {

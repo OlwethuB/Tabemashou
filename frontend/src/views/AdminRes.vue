@@ -19,22 +19,10 @@
     </div>
 
         <div class="controls">
-      <div class="sort-filter">
-        <label for="sortBy">Sort By:</label>
-        <select v-model="sortBy" id="sortBy" class="form-select">
-          <option value="bookingName">Name</option>
-          <option value="pepSize">People</option>
-          <option value="Date">Date</option>
-        </select>
-      </div>
       <div class="search">
-        <label for="searchTerm">Search:</label>
-        <input
-          v-model="searchTerm"
-          id="searchTerm"
-          type="text"
-          class="form-control"
-        />
+        <label>Search : </label>
+        <input type="text" v-model="search" placeholder="Search..." />
+      <button class="ms-5 btn btn-dark" @click="sortPeople">Sort</button>
       </div>
     </div>
 
@@ -147,28 +135,16 @@ export default {
           editModal: 'BookingModal',
       bookings: [],
       sortBy: "bookingName",
-      searchTerm: "",
+      search: "",
       isLoading: false,
     };
   },
   computed: {
       reservations() {
-        return this.$store.state.reservations;
+        return this.$store.state.reservations?.filter((book) => {
+            return book.name.toLowerCase().indexOf(this.search.toLowerCase()) != -1;  
+        });
       },
-    filteredBookings() {
-      let filtered = [...this.bookings];
-
-      if (this.searchTerm) {
-        const searchTermLC = this.searchTerm.toLowerCase();
-        filtered = filtered.filter((booking) =>
-          booking.bookingName.toLowerCase().includes(searchTermLC)
-        );
-      }
-
-      filtered.sort((a, b) => a[this.sortBy].localeCompare(b[this.sortBy]));
-
-      return filtered;
-    },
   },
 
 
@@ -187,6 +163,9 @@ export default {
                 console.log(err);
             }
         },
+            sortPeople() {
+      this.$store.commit("sortBookingByPeople");
+    },
     },
 };
 </script>
