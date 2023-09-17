@@ -18,12 +18,6 @@
         </ul>
     </div>
 
-   <div class="controls">
-      <div class="search">
-        <label>Search : </label>
-        <input type="text" v-model="search" placeholder="Search..." />
-      </div>
-   </div>
     <!-- Current Table -->
     <section>
         <div style="overflow-x:auto;">
@@ -125,23 +119,16 @@ export default {
   },  
     data() {
       return {
-          editModal: 'userModal',
-      users: [],
-      search: "",
-      sortBy: "firstName", // Default sort by first name
+          editModal: 'userModal', // Default sort by first name
       isLoading: false,
     };
   },
   computed: {
       users() {
-        return this.$store.state.users?.filter((user) => {
-            return user.name.toLowerCase().indexOf(this.search.toLowerCase()) != -1 
-        });
+        return this.$store.state.users
       },
   },
 
-  computed: {
-},
 mounted() {
     
     this.$store.dispatch("fetchUsers");

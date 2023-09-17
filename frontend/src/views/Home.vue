@@ -77,7 +77,7 @@
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link class="dropdown-item" to="/adminMenu"
+                <router-link class="dropdown-item" to="/adminUsers"
                   >Admin</router-link
                 >
               </li>
